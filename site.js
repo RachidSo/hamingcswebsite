@@ -24,6 +24,25 @@ document.addEventListener('DOMContentLoaded', function () {
     window.addEventListener('resize', onScroll);
   }
 
+  var navToggle = document.querySelector('.nav-toggle');
+  var navLinks = document.querySelector('.nav-links');
+  if (navToggle && navLinks) {
+    var closeNav = function () {
+      navLinks.classList.remove('is-open');
+      navToggle.setAttribute('aria-expanded', 'false');
+    };
+    navToggle.addEventListener('click', function () {
+      var isOpen = navLinks.classList.toggle('is-open');
+      navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+    navLinks.addEventListener('click', function (e) {
+      if (e.target.closest('a')) closeNav();
+    });
+    window.addEventListener('resize', function () {
+      if (window.innerWidth > 900) closeNav();
+    });
+  }
+
   document.querySelectorAll('[data-tabs]').forEach(function (group) {
     var target = group.getAttribute('data-tabs');
     var buttons = group.querySelectorAll('button');
