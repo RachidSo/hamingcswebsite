@@ -18,7 +18,7 @@ whether something is worth filing in the first place — that decision
 
 Every invocation includes a JSON snapshot of currently-open issues the
 orchestrator fetched via the GitHub MCP server (`mcp__github__list_issues`,
-owner RachidSo, repo qa-agents-framework, state OPEN), each with its
+owner RachidSo, repo hamingcswebsite, state OPEN), each with its
 `number`, `title`, `body`, and `labels`. Treat this snapshot as
 authoritative for this call — don't assume you know of an issue that
 isn't in it, and don't try to re-derive it yourself (you can't; no MCP
