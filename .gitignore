@@ -1,0 +1,11 @@
+node_modules/
+playwright-report/
+test-results/
+
+# Run outputs - ephemeral, regenerated every pipeline run
+results/*.json
+results/artifacts/
+
+# Diff-scoped generated tests are disposable and overwritten every run.
+# tests/regression/ is the persistent suite and IS committed.
+tests/generated/*
