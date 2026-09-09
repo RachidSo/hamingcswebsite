@@ -157,9 +157,33 @@ When asked to test a change, follow this sequence:
    it only those retry file(s) — not the full merged set — to produce
    a final classification for those tests.
 
-10. Apply the severity/confidence gate per failure, not per batch:
-    severity is one of critical/high/medium/low (triage-analyzer's
-    scale). A failure auto-clears the gate ONLY when severity is
+10. First filter by classification: only failures triage-analyzer
+    classified as "Real bug" proceed to the gate below. A failure
+    classified "Environment issue" is never filed, regardless of
+    severity/confidence — it says nothing about the target repo's
+    correctness (a test-technique limitation like asserting on
+    OS-level behavior browser automation can't observe, a bug in the
+    generated test script itself, a missing local dependency), so
+    filing it on the target repo's issue tracker would misrepresent it
+    as a product defect. Report every "Environment issue" failure to
+    the human directly in the run's final summary, with
+    triage-analyzer's own notes on why — this is signal about the
+    pipeline's own quality, not something to gate/file/hold the way a
+    real bug is. A failure triage-analyzer still can't resolve past
+    "Flaky" even after step 9's retries gets the same treatment: report
+    it, don't file it.
+
+    (This is exactly what happened on this project's own first real
+    run: `#4` and `#5` were auto-filed as if they were site bugs — a
+    mailto-observability test-technique limitation and a bug in
+    generated test code — purely because the old gate only checked
+    severity/confidence, never classification. This fix is a direct
+    response to that.)
+
+    Apply the severity/confidence gate per failure, not per batch, to
+    everything that IS classified "Real bug": severity is one of
+    critical/high/medium/low (triage-analyzer's scale). A failure
+    auto-clears the gate ONLY when severity is
     exactly "low" AND confidence is exactly "high" — invoke bug-reporter
     for it directly. Every other combination (critical, high, or medium
     severity — at any confidence — or low/medium confidence at any

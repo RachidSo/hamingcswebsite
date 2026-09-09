@@ -46,6 +46,20 @@ exactly what's in the table.
 - If a test case in the table is ambiguous or can't be implemented
   without more context, write it as a skipped test with a TODO comment
   explaining what's missing, rather than guessing.
+- If a test case describes an outcome outside what browser/UI
+  automation can actually observe — an OS-level side effect like a
+  `mailto:`/`tel:` link actually opening the system's mail/phone app, a
+  native file-save dialog, a completed download handled by the OS, a
+  push notification — don't write an assertion that pretends to observe
+  it directly; that produces a test that always fails (or worse,
+  sometimes passes/fails for reasons unrelated to the code under test).
+  Assert the thing that IS observable instead — for a `mailto:` link,
+  that means the `href` attribute value, not that a mail client opened
+  — and note in a comment that the outcome beyond that point is outside
+  what this test can verify. This was a real, live-observed failure
+  mode on this exact project (CONTACT-009 asserting an OS mail client
+  opened, which headless Chromium can never confirm), not a
+  hypothetical.
 - If the orchestrator sends back a linting/compile error, fix it yourself
   once. If it fails a second time, stop and report the error rather than
   looping.
