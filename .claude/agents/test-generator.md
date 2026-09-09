@@ -59,7 +59,44 @@ exactly what's in the table.
   what this test can verify. This was a real, live-observed failure
   mode on this exact project (CONTACT-009 asserting an OS mail client
   opened, which headless Chromium can never confirm), not a
-  hypothetical.
+  hypothetical. This applies to every technique that tries to observe
+  the unobservable hand-off, not just "wait for the OS app to open" — a
+  later regeneration of CONTACT-009 tried intercepting the browser's own
+  outgoing request for the external scheme (`page.route('mailto:*',
+  ...)`) instead, and that failed too, for the same underlying reason
+  (the hand-off happens outside what Chromium's own network layer ever
+  sees) — filed as issue #4, then retired to `test.skip()` in favor of
+  CONTACT-008's href assertion, which already fully covers this use
+  case. It also applies when you're regenerating a module whose plan row
+  didn't change: don't reproduce a test you already know is broken just
+  because a prior version of the file had it (exactly what happened with
+  CONTACT-009 the second time) — apply this rule fresh every time you
+  touch the file, including a verification re-run where the surrounding
+  module content is otherwise unchanged.
+- Playwright's `response.securityDetails()` resolves to a plain object
+  (`{ protocol, subjectName, issuer, validFrom, validTo }`, or `null`) —
+  `protocol` is a string property, not a method. `security.protocol()`
+  throws a TypeError before the assertion it's part of ever runs. This
+  was a real, live-observed failure mode on this exact project (GLB-001,
+  formerly SEC-01, crashing before its own HTTPS/TLS assertion — filed
+  as issue #5 — when the prior assertions on `status()` and `url()` had
+  already passed), not a hypothetical.
+- When a test case checks the same thing (visibility, in-viewport
+  position, tappability) across multiple sibling elements in a loop —
+  e.g. cards, list items, tabs — on a page where those elements are
+  stacked or scrollable rather than all on-screen at once, scroll each
+  element into view (`locator.scrollIntoViewIfNeeded()`) immediately
+  before asserting on it, inside the loop, not just once before the
+  loop starts. `toBeVisible()` checks DOM/CSS visibility, not viewport
+  position, so it won't catch this — but a viewport-position assertion
+  like `toBeInViewport()` will fail for every element after the first
+  that was never scrolled to, and that failure is an artifact of the
+  test's own scroll state, not a real per-element defect. This was a
+  real, live-observed failure mode on this exact project (ENG-019
+  looping over three engagement cards at mobile width with a single
+  scroll before the loop instead of one per iteration — only the first
+  card ever passed, and the middle card ("Interim leadership") got
+  filed as issue #7 before this was caught), not a hypothetical.
 - If the orchestrator sends back a linting/compile error, fix it yourself
   once. If it fails a second time, stop and report the error rather than
   looping.

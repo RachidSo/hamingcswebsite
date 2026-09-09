@@ -11,7 +11,7 @@ test.describe('home', () => {
     await page.goto(BASE_URL);
   });
 
-  // TEST-ID: HOME-01 | PRIORITY: critical | USE-CASE: https://github.com/RachidSo/hamingcswebsite/blob/5285ec33b95d4582360dbe68df042274fa906d3b/specs/home.feature#L9-L13
+  // TEST-ID: HOME-01 | PRIORITY: critical | USE-CASE: https://github.com/RachidSo/hamingcswebsite/blob/6a76f4e/specs/home.feature#L9-L13
   test('HOME-01: hero eyebrow, headline, and lede communicate positioning', async ({ page }) => {
     const hero = page.locator('header.hero#top');
 
@@ -31,7 +31,7 @@ test.describe('home', () => {
     expect(ledeText).toMatch(/systems,\s*security,?\s*and\s*devops architecture/);
   });
 
-  // TEST-ID: HOME-03 | PRIORITY: critical | USE-CASE: https://github.com/RachidSo/hamingcswebsite/blob/5285ec33b95d4582360dbe68df042274fa906d3b/specs/home.feature#L17
+  // TEST-ID: HOME-03 | PRIORITY: critical | USE-CASE: https://github.com/RachidSo/hamingcswebsite/blob/6a76f4e/specs/home.feature#L17
   test('HOME-03: hero "Start a conversation" CTA links to and lands on #contact', async ({ page }) => {
     // Scoped specifically to the hero instance — "Start a conversation" also
     // appears in the nav bar (.nav-cta) and inside the services/engagement
@@ -54,7 +54,7 @@ test.describe('home', () => {
     await expect(contactSection.locator('.chip')).toContainText('CONTACT');
   });
 
-  // TEST-ID: HOME-04 | PRIORITY: important | USE-CASE: https://github.com/RachidSo/hamingcswebsite/blob/5285ec33b95d4582360dbe68df042274fa906d3b/specs/home.feature#L18
+  // TEST-ID: HOME-04 | PRIORITY: important | USE-CASE: https://github.com/RachidSo/hamingcswebsite/blob/6a76f4e/specs/home.feature#L18
   test('HOME-04: hero "See what we do" CTA links to #services', async ({ page }) => {
     const servicesCta = page.locator('.hero-actions .btn.btn-ghost');
 
@@ -67,7 +67,7 @@ test.describe('home', () => {
     await expect(page).toHaveURL(/#services$/);
   });
 
-  // TEST-ID: HOME-05 | PRIORITY: critical | USE-CASE: https://github.com/RachidSo/hamingcswebsite/blob/5285ec33b95d4582360dbe68df042274fa906d3b/specs/home.feature#L20-L23
+  // TEST-ID: HOME-05 | PRIORITY: critical | USE-CASE: https://github.com/RachidSo/hamingcswebsite/blob/6a76f4e/specs/home.feature#L20-L23
   test('HOME-05: three discipline summary cards are visible with title and copy', async ({ page }) => {
     const pillars = page.locator('header.hero#top .console .pillar');
     await expect(pillars).toHaveCount(3);
@@ -82,14 +82,16 @@ test.describe('home', () => {
       const pillar = pillars.nth(i);
       await expect(pillar).toBeVisible();
       await expect(pillar.locator('.pillar-label')).toHaveText(expectedLabels[i]);
-      await expect(pillar.locator('h3')).toBeVisible();
-      await expect(pillar.locator('h3')).not.toBeEmpty();
+      // Heading level updated to <h2> per the heading-hierarchy fix in commit
+      // 6a76f4e (was <h3> in the prior revision of this plan/test).
+      await expect(pillar.locator('h2')).toBeVisible();
+      await expect(pillar.locator('h2')).not.toBeEmpty();
       await expect(pillar.locator('p:not(.pillar-label)')).toBeVisible();
       await expect(pillar.locator('p:not(.pillar-label)')).not.toBeEmpty();
     }
   });
 
-  // TEST-ID: HOME-06 | PRIORITY: important | USE-CASE: https://github.com/RachidSo/hamingcswebsite/blob/5285ec33b95d4582360dbe68df042274fa906d3b/specs/home.feature#L24-L25
+  // TEST-ID: HOME-06 | PRIORITY: important | USE-CASE: https://github.com/RachidSo/hamingcswebsite/blob/6a76f4e/specs/home.feature#L24-L25
   test('HOME-06: "STRATEGY & LEADERSHIP" card references director/CTO level and 300-person global team', async ({ page }) => {
     const leadershipPillar = page
       .locator('header.hero#top .console .pillar')
@@ -106,7 +108,7 @@ test.describe('home', () => {
     }
   });
 
-  // TEST-ID: HOME-07 | PRIORITY: critical | USE-CASE: https://github.com/RachidSo/hamingcswebsite/blob/5285ec33b95d4582360dbe68df042274fa906d3b/specs/home.feature#L27-L33
+  // TEST-ID: HOME-07 | PRIORITY: critical | USE-CASE: https://github.com/RachidSo/hamingcswebsite/blob/6a76f4e/specs/home.feature#L27-L33
   test('HOME-07: stat strip renders all three stats with exact numbers and labels', async ({ page }) => {
     const statCards = page.locator('.stat-row .stat-card');
     await expect(statCards).toHaveCount(3);

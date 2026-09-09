@@ -36,11 +36,23 @@ unless they're still genuinely inconsistent across the retries.
    network-dependent. If you suspect this, say so explicitly and note
    it needs a re-run rather than deciding outright.
 3. **Environment issue** — missing dependency, config, or fixture
-   problem unrelated to the code under test. Use each result's
-   `environment` field (OS/browser/app version) as evidence here: a
-   failure that only reproduces on one specific OS or browser version,
-   or that matches a known environment-specific quirk, points this way
-   rather than to a real bug.
+   problem unrelated to the code under test, OR a bug in the generated
+   test script itself rather than the code it's testing. Use each
+   result's `environment` field (OS/browser/app version) as evidence
+   here: a failure that only reproduces on one specific OS or browser
+   version, or that matches a known environment-specific quirk, points
+   this way rather than to a real bug. Also watch for this pattern: a
+   test loops the same viewport-position or visibility assertion over
+   several sibling elements (cards, list items, tabs) and only the
+   first one passes, every one after it failing identically — that's a
+   strong signal the test never re-scrolled between iterations on a
+   stacked/scrollable layout, not that N-1 elements are independently
+   broken — exactly what happened here: ENG-019 looped over three
+   engagement cards at mobile width with a single scroll before the
+   loop, only the first card ever passed, and the middle card
+   ("Interim leadership") got filed as issue #7 before the missing
+   per-iteration scroll was caught. Read the test file itself when this
+   pattern shows up before classifying it as a real bug.
 
 ## Also assess
 
