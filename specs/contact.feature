@@ -9,7 +9,7 @@ Feature: Contact section
   Scenario: Contact section intro is correct
     Then the section is headed "CONTACT"
     And the heading "Tell us what you're building." is visible
-    And the intro copy mentions strategy, AI and data, and systems and security review
+    And intro copy mentions strategy, AI/data, and systems & security review
 
   Scenario: Contact details are displayed correctly
     Then "EMAIL" shows "info@hamingcs.com"
