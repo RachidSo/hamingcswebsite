@@ -26,3 +26,4 @@ Feature: Contact section
     Then no "Name" / "Email" / "Message" input form is present in the Contact section
     (this site intentionally uses direct email contact only — do not test for
     form validation, submission, or confirmation states)
+
