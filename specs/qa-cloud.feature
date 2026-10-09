@@ -17,7 +17,7 @@ Feature: QA Agents Cloud pilot section
     Then the section shows 7 figures in this order, with these exact captions:
       | figure           | caption |
       | Live progress    | A run in progress: how many agents are working and how far along it is. From a run on a sample application. |
-      | Agent map        | The agents of a run and how they work together. From a run on a sample application. |
+      | Agent map        | The agents of a run and how they work together. From a small run on a sample application. |
       | Approvals        | Under the Strict rule, every bug waits for your approval before it is filed. Under the default Standard rule, only low-severity, high-confidence bugs are filed automatically. |
       | Run results      | A finished run on a sample application: tests, findings, and what needs approval. My own run, not a customer result. |
       | Concurrency      | How many agents ran at the same time in one run. The tester limit is a setting I choose, not a guarantee. |
