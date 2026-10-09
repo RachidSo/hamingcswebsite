@@ -40,7 +40,7 @@ Feature: How I Engage section
       agents supporting where it fits.", and "Clear handoff and documentation"
 
   Scenario: The QA Agents Cloud pilot card is the fourth, full-width card
-    Then a fourth engagement card titled "QA Agents Cloud pilot" tagged "Paid pilot" is visible below the other three and spans the full width
+    Then a fourth engagement card titled "QA Agents Cloud pilot" tagged "Pilot" is visible below the other three and spans the full width
     And it says "AI agents test your web app from your specifications, and bugs wait for a person to approve them before they are filed."
     And it has a "See the pilot" button linking to "#qa-cloud"
     And it shows no price
