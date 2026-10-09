@@ -77,6 +77,34 @@ document.addEventListener('DOMContentLoaded', function () {
     grid.classList.add('is-enhanced');
   });
 
+  // Click to enlarge: every screenshot in #qa-cloud opens in a modal dialog (Esc or Close to dismiss, focus returns to the
+  // thumbnail). Without JavaScript the link opens the full-size image in a new tab.
+  var lightbox = document.querySelector('.lightbox');
+  if (lightbox && typeof lightbox.showModal === 'function') {
+    var lbImg = lightbox.querySelector('img');
+    var lbCap = lightbox.querySelector('.lightbox__cap');
+    var lbTrigger = null;
+    document.querySelectorAll('[data-lightbox]').forEach(function (link) {
+      link.addEventListener('click', function (e) {
+        e.preventDefault();
+        lbTrigger = link;
+        var thumb = link.querySelector('img');
+        var figure = link.closest('figure');
+        var cap = figure ? figure.querySelector('figcaption') : null;
+        lbImg.src = link.getAttribute('href');
+        lbImg.alt = thumb ? thumb.alt : '';
+        lbCap.textContent = cap ? cap.textContent : '';
+        lightbox.showModal();
+      });
+    });
+    lightbox.querySelector('.lightbox__close').addEventListener('click', function () { lightbox.close(); });
+    lightbox.addEventListener('click', function (e) { if (e.target === lightbox) lightbox.close(); });
+    lightbox.addEventListener('close', function () {
+      lbImg.removeAttribute('src');
+      if (lbTrigger) lbTrigger.focus();
+    });
+  }
+
   var reveals = document.querySelectorAll('.reveal');
   if ('IntersectionObserver' in window && reveals.length) {
     var io = new IntersectionObserver(function (entries) {
