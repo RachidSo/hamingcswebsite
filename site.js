@@ -47,15 +47,34 @@ document.addEventListener('DOMContentLoaded', function () {
     var target = group.getAttribute('data-tabs');
     var buttons = group.querySelectorAll('button');
     var panels = document.querySelectorAll('[data-tabset="' + target + '"] [data-tabpanel]');
+    var syncAria = function () {
+      buttons.forEach(function (b) { b.setAttribute('aria-pressed', b.classList.contains('is-active') ? 'true' : 'false'); });
+    };
     buttons.forEach(function (btn) {
+      var panel = document.querySelector('[data-tabset="' + target + '"] [data-tabpanel="' + btn.getAttribute('data-tab') + '"]');
+      if (panel) {
+        if (!panel.id) panel.id = target + '-panel-' + btn.getAttribute('data-tab');
+        btn.setAttribute('aria-controls', panel.id);
+      }
       btn.addEventListener('click', function () {
         var key = btn.getAttribute('data-tab');
         buttons.forEach(function (b) { b.classList.toggle('is-active', b === btn); });
         panels.forEach(function (p) {
           p.classList.toggle('is-active', p.getAttribute('data-tabpanel') === key);
         });
+        syncAria();
       });
     });
+    syncAria();
+  });
+
+  // Founder interview reuses the FAQ tabs. Without JavaScript every category and answer is shown;
+  // with it, one category at a time and only its first question open.
+  document.querySelectorAll('.interview-grid').forEach(function (grid) {
+    grid.querySelectorAll('.faq-set').forEach(function (set) {
+      set.querySelectorAll('details').forEach(function (d, i) { d.open = i === 0; });
+    });
+    grid.classList.add('is-enhanced');
   });
 
   var reveals = document.querySelectorAll('.reveal');

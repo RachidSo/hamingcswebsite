@@ -154,30 +154,35 @@
       <text x="700" y="106" font-family="IBM Plex Mono, monospace" font-size="12" fill="rgba(242,244,247,.55)">HAMINGCS</text>
     </svg>
 
-    <p class="chip reveal" style="margin-top: 64px;"><span class="chip__dot"></span>FOUNDER INTERVIEW</p>
-    <h2 class="h2 reveal" style="font-size: 1.6rem;">In the Founder's own words</h2>
-    <p class="interview-by reveal">Answers by the Founder</p>
-    <div class="interview" style="margin-top: 28px;">
-      <div class="interview-qa reveal">
-        <h3>Why start Hamingcs?</h3>
-        <p>Colleagues used to call me the fixer from the UN, because I was the one who got sent in whenever a customer had a big problem that needed sorting out. I've never been able to lie to someone sitting in front of me. If my company had a product to sell that didn't actually fit their problem, I'd tell them it didn't fit. That earned me something more valuable than a sale: I had my own desk at nearly every customer site I worked with, a chair next to it, and I'd run what I called a "Tell me everything, I'm listening right now" session: just sitting, listening, learning what was actually going wrong for them. I ended up feeling like part of their team, not their vendor. Hamingcs exists because I wanted to keep doing that: building what a business actually needs, not selling them something so big they'll only ever use 10% of it.</p>
+    <p class="chip" style="margin-top: 64px;"><span class="chip__dot"></span>FOUNDER INTERVIEW</p>
+    <h2 class="h2" style="font-size: 1.6rem;">In the Founder's own words</h2>
+    <p class="interview-by">Answers by the Founder</p>
+    <div class="faq-grid interview-grid" style="margin-top: 28px;">
+      <div class="faq-tabs" data-tabs="interview">
+        <button type="button" class="is-active" data-tab="why">Why Hamingcs</button>
+        <button type="button" data-tab="ai">AI projects</button>
+        <button type="button" data-tab="qa">QA Agents Cloud</button>
       </div>
-      <div class="interview-qa reveal">
-        <h3>What's the real reason most enterprise AI projects stall?</h3>
-        <p>The model is rarely the reason an AI project stalls. It's almost always the architecture around it, the part nobody puts on a slide. I've seen prototypes that worked perfectly at small scale hit a wall the moment real volume showed up, because a decision that felt reasonable early on (no message queue, no shared data layer, security treated as a later step) quietly became a blocking problem instead of a future one. None of that is an AI problem. It's architecture and governance wearing an AI costume. I tell two of these stories in full in <a href="https://hamingcsinsights.substack.com/p/why-most-enterprise-ai-projects-stall" rel="noopener">Issue #1 of my Substack</a>.</p>
+      <div data-tabset="interview">
+        <div class="faq-set is-active" data-tabpanel="why">
+          <p class="interview-cat">Why Hamingcs</p>
+          <details class="qa" open><summary><h3>Why start Hamingcs?</h3></summary><div class="qa__a">Colleagues used to call me the fixer from the UN, because I was the one who got sent in whenever a customer had a big problem that needed sorting out. I've never been able to lie to someone sitting in front of me. If my company had a product to sell that didn't actually fit their problem, I'd tell them it didn't fit. That earned me something more valuable than a sale: I had my own desk at nearly every customer site I worked with, a chair next to it, and I'd run what I called a "Tell me everything, I'm listening right now" session: just sitting, listening, learning what was actually going wrong for them. I ended up feeling like part of their team, not their vendor. Hamingcs exists because I wanted to keep doing that: building what a business actually needs, not selling them something so big they'll only ever use 10% of it.</div></details>
+          <details class="qa" open><summary><h3>What's different about how you approach this compared to a typical consulting engagement or AI vendor?</h3></summary><div class="qa__a">I start with a discovery session where I listen before I propose anything. I don't use subcontractors, so the person you meet at that session is the person who does the work. In my years leading a department at a large company, I saw how many consulting firms put a senior person in front of the customer for the first few days and then swap in juniors, so the customer ends up paying for their training. I won't run it that way. The people who start your project stay until the end, so they know the whole story and can answer your questions with real answers about what's happening on the project and in the market. On the QA side, when a pilot needs more capacity, I add another AI agent to the team rather than bringing in junior people, up to a limit that is configurable. I run Hamingcs the same way: when I need something new, whether that's maintenance, support, marketing or product management, I look first at whether an agent can do it. I also won't sell the dream up front. In my experience, many agile projects without clear KPIs end up delivering something other than the agreed scope, because every trade made to get past a blocker quietly shrinks what you get. I'd rather agree what is delivered, say what would change it, and tell you when a trade is happening.</div></details>
+        </div>
+        <div class="faq-set" data-tabpanel="ai">
+          <p class="interview-cat">AI projects</p>
+          <details class="qa" open><summary><h3>What's the real reason most enterprise AI projects stall?</h3></summary><div class="qa__a">The model is rarely the reason an AI project stalls. It's almost always the architecture around it, the part nobody puts on a slide. I've seen prototypes that worked perfectly at small scale hit a wall the moment real volume showed up, because a decision that felt reasonable early on (no message queue, no shared data layer, security treated as a later step) quietly became a blocking problem instead of a future one. None of that is an AI problem. It's architecture and governance wearing an AI costume. I tell two of these stories in full in <a href="https://hamingcsinsights.substack.com/p/why-most-enterprise-ai-projects-stall" rel="noopener">Issue #1 of my Substack</a>.</div></details>
+        </div>
+        <div class="faq-set" data-tabpanel="qa">
+          <p class="interview-cat">QA Agents Cloud</p>
+          <details class="qa" open><summary><h3>Why build something like QA Agents Cloud yourself, instead of only advising on it?</h3></summary><div class="qa__a">Every QA team I've worked with hits the same wall: always more testing to do than hours to do it in, and regression suites that grow every sprint. There's a second cost underneath that one: when a QA analyst who's spent a year building context on a codebase leaves, that context leaves with them, and whoever backfills starts close to zero. None of that work is why anyone got into QA, and it's exactly the kind of work a well-instructed AI system can take off someone's plate, if it's built to actually understand the pipeline, not just bolted onto the end of it as a chatbot. I'd rather build the thing that tests that idea than only advise on it.</div></details>
+          <details class="qa" open><summary><h3>What's the one thing you refuse to hide from the people who own the result?</h3></summary><div class="qa__a">By default, nothing medium or higher gets filed until a person approves it, and neither does anything the system isn't highly confident about. Only low-severity findings it is highly confident about go through on their own. That line is a setting, and you can make it stricter, so every finding waits for a person. What I won't do is hide that choice from the people who own the result.</div></details>
+        </div>
       </div>
-      <div class="interview-qa reveal">
-        <h3>Why build something like QA Agents Cloud yourself, instead of only advising on it?</h3>
-        <p>Every QA team I've worked with hits the same wall: always more testing to do than hours to do it in, and regression suites that grow every sprint. There's a second cost underneath that one: when a QA analyst who's spent a year building context on a codebase leaves, that context leaves with them, and whoever backfills starts close to zero. None of that work is why anyone got into QA, and it's exactly the kind of work a well-instructed AI system can take off someone's plate, if it's built to actually understand the pipeline, not just bolted onto the end of it as a chatbot. I'd rather build the thing that tests that idea than only advise on it.</p>
-      </div>
-      <div class="interview-qa reveal">
-        <h3>What's the one thing you refuse to hide from the people who own the result?</h3>
-        <p>By default, nothing medium or higher gets filed until a person approves it, and neither does anything the system isn't highly confident about. Only low-severity findings it is highly confident about go through on their own. That line is a setting, and you can make it stricter, so every finding waits for a person. What I won't do is hide that choice from the people who own the result.</p>
-      </div>
-      <div class="interview-qa reveal">
-        <h3>What's different about how you approach this compared to a typical consulting engagement or AI vendor?</h3>
-        <p>I start with a discovery session where I listen before I propose anything. I don't use subcontractors, so the person you meet at that session is the person who does the work. In my years leading a department at a large company, I saw how many consulting firms put a senior person in front of the customer for the first few days and then swap in juniors, so the customer ends up paying for their training. I won't run it that way. The people who start your project stay until the end, so they know the whole story and can answer your questions with real answers about what's happening on the project and in the market. On the QA side, when a pilot needs more capacity, I add another AI agent to the team rather than bringing in junior people, up to a limit that is configurable. I run Hamingcs the same way: when I need something new, whether that's maintenance, support, marketing or product management, I look first at whether an agent can do it. I also won't sell the dream up front. In my experience, many agile projects without clear KPIs end up delivering something other than the agreed scope, because every trade made to get past a blocker quietly shrinks what you get. I'd rather agree what is delivered, say what would change it, and tell you when a trade is happening.</p>
-      </div>
+    </div>
+    <div class="interview-close">
+      <p>If this is how you want to work, ask for a pilot.</p>
+      <a href="mailto:info@hamingcs.com?subject=QA%20pilot%20request" class="btn btn-primary">Request a paid pilot</a>
     </div>
 
     <p class="chip reveal" style="margin-top: 64px;"><span class="chip__dot"></span>HOW I APPROACH STRATEGY</p>
