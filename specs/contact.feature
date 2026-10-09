@@ -23,8 +23,8 @@ Feature: Contact section
     Then the visitor's default mail client opens with "info@hamingcs.com" pre-filled as the recipient
 
   Scenario: The pilot request lives in the QA Agents Cloud section, not in Contact
-    Then the Contact section has an "Email me" button and no "Request a paid pilot" button
-    And the paid pilot request is in the QA Agents Cloud section (see qa-cloud.feature)
+    Then the Contact section has an "Email me" button and no "Request a pilot" button
+    And the pilot request is in the QA Agents Cloud section (see qa-cloud.feature)
 
   Scenario: The Substack publication is linked
     Then a link "Substack: Hamingcs Insights" to "https://hamingcsinsights.substack.com/p/start-here" is visible in the Contact section

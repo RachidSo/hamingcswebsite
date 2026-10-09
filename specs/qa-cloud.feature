@@ -1,7 +1,7 @@
 Feature: QA Agents Cloud pilot section
   As a prospective client
   I want to see what the QA Agents Cloud pilot is and how it looks in use
-  So that I can decide whether to request a paid pilot
+  So that I can decide whether to request a pilot
 
   Background:
     Given I navigate to "https://hamingcs.com/"
@@ -33,8 +33,8 @@ Feature: QA Agents Cloud pilot section
     And the page has no horizontal scroll at 390 px
 
   Scenario: The pilot block holds the request button
-    Then a "Start with a paid pilot" block follows the figures
+    Then a "Start with a pilot" block follows the figures
     And it says the pilot is paid and fixed-scope, that scope and fee are agreed in writing, and that I make no promises about results
     And it says Windows desktop testing is proven on a sample application, not yet with a customer
-    And it has a "Request a paid pilot" button linking to "mailto:info@hamingcs.com?subject=QA%20pilot%20request"
+    And it has a "Request a pilot" button linking to "mailto:info@hamingcs.com?subject=QA%20pilot%20request"
     And it shows no price, no hosted offer, no licence and no maintenance, support, marketing or product-management agents
