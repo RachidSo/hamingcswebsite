@@ -80,7 +80,7 @@ Feature: Global site behavior
     Then every image (including the logo) has a non-empty "alt" attribute
     And heading tags follow a logical order (one "h1" per page, no skipped levels
       across the many section headings: WHY THREE DISCIPLINES, MY BACKGROUND,
-      HOW I APPROACH STRATEGY, HOW I WORK, SERVICES, HOW I ENGAGE, FAQ, CONTACT)
+      HOW I APPROACH STRATEGY, HOW I WORK, SERVICES, HOW I ENGAGE, QA AGENTS CLOUD, FAQ, CONTACT)
     And text/background color contrast meets WCAG AA (4.5:1 for normal text)
     And all interactive elements (nav links, CTAs, FAQ accordion, mailto link)
       are reachable and operable via keyboard (Tab / Enter)

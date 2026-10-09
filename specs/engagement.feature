@@ -9,7 +9,7 @@ Feature: How I Engage section
 
   Scenario: Section intro is correct
     Then the section is headed "HOW I ENGAGE"
-    And the subheading "Three ways in, one point of contact." is visible
+    And the subheading "Four ways in, one point of contact." is visible
 
   Scenario Outline: Each engagement model is presented with its own CTA
     Then an engagement model titled "<model>" tagged "<tag>" is visible
@@ -36,5 +36,11 @@ Feature: How I Engage section
 
   Scenario: Project delivery model lists its scope
     Given the "Project delivery" engagement model card is visible
-    Then its bullets include: "Fixed scope and timeline", "Security, cloud, or
-      AI-specialist team", and "Clear handoff and documentation"
+    Then its bullets include: "Fixed scope and timeline", "Delivered by me, with AI
+      agents supporting where it fits.", and "Clear handoff and documentation"
+
+  Scenario: The QA Agents Cloud pilot card is the fourth, full-width card
+    Then a fourth engagement card titled "QA Agents Cloud pilot" tagged "Paid pilot" is visible below the other three and spans the full width
+    And it says "AI agents test your web app from your specifications, and bugs wait for a person to approve them before they are filed."
+    And it has a "See the pilot" button linking to "#qa-cloud"
+    And it shows no price
