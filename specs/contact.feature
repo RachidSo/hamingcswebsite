@@ -8,7 +8,7 @@ Feature: Contact section
 
   Scenario: Contact section intro is correct
     Then the section is headed "CONTACT"
-    And the heading "Tell us what you're building." is visible
+    And the heading "Tell me what you're building." is visible
     And intro copy mentions strategy, AI/data, and systems & security review
 
   Scenario: Contact details are displayed correctly
@@ -16,8 +16,8 @@ Feature: Contact section
     And "LOCATION" shows "United Arab Emirates"
     And "OPERATING MODE" shows "Global / remote-first"
 
-  Scenario: "Email us" button opens the visitor's mail client
-    Then an "Email us" button is visible
+  Scenario: "Email me" button opens the visitor's mail client
+    Then an "Email me" button is visible
     And its link is exactly "mailto:info@hamingcs.com"
     When I click it
     Then the visitor's default mail client opens with "info@hamingcs.com" pre-filled as the recipient

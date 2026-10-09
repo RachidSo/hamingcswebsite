@@ -15,7 +15,7 @@ Feature: Home / hero section
 
   Scenario: Hero has two calls-to-action
     Then a "Start a conversation" button is visible and links to "#contact"
-    And a "See what we do" button is visible and links to "#services"
+    And a "See what I do" button is visible and links to "#services"
 
   Scenario: Three-discipline summary cards are shown
     Then three summary cards are visible: "AI & DATA", "SYSTEMS & SECURITY",
@@ -28,6 +28,6 @@ Feature: Home / hero section
     Then a stat "20+ yrs" is shown with the label "Combined leadership across
       strategy, AI, data, and enterprise systems"
     And a stat "Automotive, banking, tech" is shown with the label "Industries
-      our team has delivered in, across three continents"
+      I have delivered in, across three continents"
     And a stat "Strategy to production" is shown with the label "From AI vision
       and data governance through to secure, running systems"

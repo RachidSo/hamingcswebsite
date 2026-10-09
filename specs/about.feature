@@ -13,8 +13,8 @@ Feature: About section
     And it states the reason Hamingcs combines strategy, AI/data, and systems
       under one practice
 
-  Scenario: "Our background" narrative is present and names no individuals
-    Then a section headed "OUR BACKGROUND" is visible
+  Scenario: "My background" narrative is present and names no individuals
+    Then a section headed "MY BACKGROUND" is visible
     And it describes hands-on origins in automotive diagnostic software (Java)
       and architecture work
     And it describes progression to director/CTO-level ownership of a 300-person
@@ -23,7 +23,7 @@ Feature: About section
     And no individual founder/employee personal name appears anywhere in this section
 
   Scenario: Four-step strategy approach is presented in order
-    Then a section headed "HOW WE APPROACH STRATEGY" is visible
+    Then a section headed "HOW I APPROACH STRATEGY" is visible
     And it lists exactly 4 steps in this order:
       | step | title                        |
       | 01   | Define the issue             |
@@ -33,7 +33,7 @@ Feature: About section
     And each step has a supporting description
 
   Scenario: Working principles are presented
-    Then a section headed "HOW WE WORK" is visible
+    Then a section headed "HOW I WORK" is visible
     And it lists 3 working principles, including one about strategy only being
       useful if someone can operate it, one about security/scale being designed
       in from the start, and one about working globally / remote-first
