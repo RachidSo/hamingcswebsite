@@ -1,14 +1,14 @@
-Feature: How We Engage section
+Feature: How I Engage section
   As a prospective client
   I want to understand the ways I can engage Hamingcs
   So that I can pick the model that fits my situation
 
   Background:
     Given I navigate to "https://hamingcs.com/"
-    And I scroll to the "HOW WE ENGAGE" section
+    And I scroll to the "HOW I ENGAGE" section
 
   Scenario: Section intro is correct
-    Then the section is headed "HOW WE ENGAGE"
+    Then the section is headed "HOW I ENGAGE"
     And the subheading "Three ways in, one point of contact." is visible
 
   Scenario Outline: Each engagement model is presented with its own CTA

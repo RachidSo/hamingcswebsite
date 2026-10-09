@@ -36,9 +36,7 @@ document.addEventListener('DOMContentLoaded', function () {
       navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
     });
     navLinks.addEventListener('click', function (e) {
-      if (e.target.closest('a')) {
-        // no-op
-      }
+      if (e.target.closest('a')) closeNav();
     });
     window.addEventListener('resize', function () {
       if (window.innerWidth > 900) closeNav();

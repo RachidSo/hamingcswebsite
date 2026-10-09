@@ -33,11 +33,11 @@ Feature: Global site behavior
       | About     | #about    |
       | Contact   | #contact  |
 
-  Scenario: "Start a conversation" / "See what we do" CTAs jump to the right section
+  Scenario: "Start a conversation" / "See what I do" CTAs jump to the right section
     Given I am on "https://hamingcs.com/"
     When I click a "Start a conversation" call-to-action anywhere on the page
     Then the URL fragment becomes "#contact"
-    When I click "See what we do" in the hero
+    When I click "See what I do" in the hero
     Then the URL fragment becomes "#services"
 
   Scenario: Mobile navigation collapses into a menu
@@ -50,7 +50,7 @@ Feature: Global site behavior
   Scenario: Footer displays correct company and contact information
     Given I am on "https://hamingcs.com/"
     Then the footer displays the contact email "info@hamingcs.com"
-    And the footer displays the location "United Arab Emirates"
+    And the footer displays the location "Global"
     And the footer displays the operating mode "Global / remote-first"
     And the footer includes the same Home/Services/About/Contact anchor links as the header
     And no individual personal name is displayed anywhere on the page
@@ -79,8 +79,8 @@ Feature: Global site behavior
     Given I am on "https://hamingcs.com/"
     Then every image (including the logo) has a non-empty "alt" attribute
     And heading tags follow a logical order (one "h1" per page, no skipped levels
-      across the many section headings: WHY THREE DISCIPLINES, OUR BACKGROUND,
-      HOW WE APPROACH STRATEGY, HOW WE WORK, SERVICES, HOW WE ENGAGE, FAQ, CONTACT)
+      across the many section headings: WHY THREE DISCIPLINES, MY BACKGROUND,
+      HOW I APPROACH STRATEGY, HOW I WORK, SERVICES, HOW I ENGAGE, FAQ, CONTACT)
     And text/background color contrast meets WCAG AA (4.5:1 for normal text)
     And all interactive elements (nav links, CTAs, FAQ accordion, mailto link)
       are reachable and operable via keyboard (Tab / Enter)
@@ -97,6 +97,6 @@ Feature: Global site behavior
     And the 404 page includes a way back to the home page
 
   Scenario: No use of individual names anywhere on the public site
-    Given the two founding CVs were intentionally combined under the Hamingcs brand
+    Given Hamingcs is run by a single founder who writes in the first person ("I") and is deliberately not named on the public site
     When I search the rendered text of every page
     Then no individual founder/employee personal name appears
