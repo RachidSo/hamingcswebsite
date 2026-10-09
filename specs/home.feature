@@ -25,8 +25,7 @@ Feature: Home / hero section
       and a 300-person team across the US, EU, Japan, China, and the Middle East
 
   Scenario: Stat strip renders correctly
-    Then a stat "20 years of experience" is shown with the label "Across
-      strategy, AI, data, and enterprise systems"
+    Then a stat "20 years of experience" is shown with the label "From software developer to team leader, architect, manager, director and CTO"
     And a stat "Automotive, banking, tech" is shown with the label "Industries
       I have delivered in, across three continents"
     And a stat "Strategy to production" is shown with the label "From AI vision
