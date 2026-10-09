@@ -50,7 +50,7 @@ Feature: Global site behavior
   Scenario: Footer displays correct company and contact information
     Given I am on "https://hamingcs.com/"
     Then the footer displays the contact email "info@hamingcs.com"
-    And the footer displays the location "United Arab Emirates"
+    And the footer displays the location "Global"
     And the footer displays the operating mode "Global / remote-first"
     And the footer includes the same Home/Services/About/Contact anchor links as the header
     And no individual personal name is displayed anywhere on the page

@@ -13,7 +13,7 @@ Feature: Contact section
 
   Scenario: Contact details are displayed correctly
     Then "EMAIL" shows "info@hamingcs.com"
-    And "LOCATION" shows "United Arab Emirates"
+    And "LOCATION" shows "Global"
     And "OPERATING MODE" shows "Global / remote-first"
 
   Scenario: "Email me" button opens the visitor's mail client
@@ -26,6 +26,10 @@ Feature: Contact section
     Then a "Request a paid pilot" button is visible
     And its link is exactly "mailto:info@hamingcs.com?subject=QA%20pilot%20request"
     And no price, form or tracking script is involved
+
+  Scenario: The Substack publication is linked
+    Then a link "Substack: Hamingcs Insights" to "https://hamingcsinsights.substack.com/p/start-here" is visible in the Contact section
+    And it has rel="noopener"
 
   Scenario: There is no contact form on this page
     Then no "Name" / "Email" / "Message" input form is present in the Contact section
