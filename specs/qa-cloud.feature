@@ -16,7 +16,7 @@ Feature: QA Agents Cloud pilot section
   Scenario: Five screenshots are shown, each with its caption, in this order
     Then the section shows 5 figures in this order, with these exact captions:
       | figure           | caption                                                                                                              |
-      | Approvals        | Every bug waits for your approval before it is filed.                                                                |
+      | Approvals        | Under the Strict rule, every bug waits for your approval before it is filed. Under the default Standard rule, only low-severity, high-confidence bugs are filed automatically. |
       | Run results      | A finished run on a sample application: tests, findings, and what needs approval. My own run, not a customer result. |
       | Concurrency      | How many agents ran at the same time in one run. The tester limit is a setting I choose, not a guarantee.            |
       | Run rules        | Run rules: who approves bugs, and how many tests run at once. Windows desktop apps are always Strict and run one at a time. |

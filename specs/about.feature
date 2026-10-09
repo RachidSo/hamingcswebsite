@@ -55,7 +55,7 @@ Feature: About section
     And the AI projects answer ends with "I tell two of these stories in full in Issue #1 of my Substack." where "Issue #1 of my Substack" links to "https://hamingcsinsights.substack.com/p/why-most-enterprise-ai-projects-stall" with rel="noopener"
     And the section text contains no "we" or "our" as a word
     And no individual's name appears anywhere in the section
-    And after the last card the line "If this is how you want to work, ask for a pilot." is followed by a "Request a paid pilot" button linking to "mailto:info@hamingcs.com?subject=QA%20pilot%20request"
+    And after the last card the line "If this is how you want to work, ask for a pilot." is followed by a "See the pilot" link to "#qa-cloud" (the only "Request a paid pilot" button is in the QA Agents Cloud pilot block)
     And the section adds no maintenance, support, marketing or product-management offer
 
   Scenario: The founder interview works without JavaScript
