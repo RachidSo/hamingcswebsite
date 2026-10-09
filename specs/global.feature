@@ -97,6 +97,6 @@ Feature: Global site behavior
     And the 404 page includes a way back to the home page
 
   Scenario: No use of individual names anywhere on the public site
-    Given the two founding CVs were intentionally combined under the Hamingcs brand
+    Given Hamingcs is run by a single founder who writes in the first person ("I") and is deliberately not named on the public site
     When I search the rendered text of every page
     Then no individual founder/employee personal name appears
