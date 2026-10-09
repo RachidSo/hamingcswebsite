@@ -14,6 +14,7 @@
   --fg-3: rgba(242,244,247,.55);
   --fg-4: rgba(242,244,247,.22);
   --teal: #1FC9B0;
+  --app-bg: #f4f6f5; /* the exact background of the QA Agents Cloud screenshots */
   --teal-deep: #0F6B63;
   --copper: #E0A25E;
   --white: #FFFFFF;
@@ -227,6 +228,7 @@ section.block.on-2 { background: var(--bg-2); }
 /* ---------- plans / engagement models ---------- */
 
 .plans-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.plan--wide { grid-column: 1 / -1; }
 .plan {
   padding: 32px 28px; border-radius: 20px; background: var(--bg-2); border: 1px solid var(--line);
   display: flex; flex-direction: column; gap: 16px;
@@ -271,7 +273,21 @@ section.block.on-2 { background: var(--bg-2); }
 .cta-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-top: 34px; }
 .cta p.substack-link { text-align: center; hyphens: none; font-size: .9rem; margin-top: 14px; }
 .cta p.substack-link a { color: var(--teal); text-decoration: underline; text-underline-offset: 3px; }
-.cta p.pilot-note { font-size: .9rem; line-height: 1.55; text-align: center; hyphens: none; max-width: 56ch; margin-top: 22px; }
+/* ---------- QA Agents Cloud section ---------- */
+.shots { display: grid; gap: 56px; margin-top: 48px; }
+.shot { margin: 0; }
+.shot__frame { display: block; background: var(--app-bg); border: 1px solid rgba(255,255,255,.14); border-radius: 12px; box-shadow: 0 30px 70px -40px rgba(0,0,0,.7); padding: 20px; overflow: hidden; }
+.shot__frame img { display: block; width: 100%; height: auto; border: 0; box-shadow: none; }
+.shot figcaption { margin-top: 14px; max-width: 70ch; font-size: .9rem; line-height: 1.55; color: var(--fg-2); }
+.pilot-block { margin-top: 72px; padding: 32px 28px; border-radius: 20px; background: var(--bg-2); border: 1px solid var(--line); }
+.pilot-block h3 { font-size: 1.3rem; margin: 0 0 10px; }
+.pilot-block p { margin: 0; max-width: 62ch; color: var(--fg-2); line-height: 1.6; }
+.pilot-block .cta-actions { justify-content: flex-start; margin-top: 22px; }
+@media (max-width: 560px) {
+  .shots { gap: 40px; }
+  .shot__frame { padding: 8px; border-radius: 10px; }
+  .pilot-block { padding: 24px 20px; }
+}
 
 /* ---------- about principles ---------- */
 
