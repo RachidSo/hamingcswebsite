@@ -267,7 +267,9 @@ section.block.on-2 { background: var(--bg-2); }
 .cta .wrap { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; }
 .cta .h2 { max-width: 16ch; }
 .cta p { color: var(--fg-2); max-width: 50ch; margin: 18px auto 0; }
-.cta .btn { margin-top: 34px; }
+.cta .btn { margin-top: 0; }
+.cta-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-top: 34px; }
+.cta p.pilot-note { font-size: .9rem; line-height: 1.55; text-align: center; hyphens: none; max-width: 56ch; margin-top: 22px; }
 
 /* ---------- about principles ---------- */
 

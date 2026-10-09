@@ -22,6 +22,11 @@ Feature: Contact section
     When I click it
     Then the visitor's default mail client opens with "info@hamingcs.com" pre-filled as the recipient
 
+  Scenario: A paid pilot can be requested
+    Then a "Request a paid pilot" button is visible
+    And its link is exactly "mailto:info@hamingcs.com?subject=QA%20pilot%20request"
+    And no price, form or tracking script is involved
+
   Scenario: There is no contact form on this page
     Then no "Name" / "Email" / "Message" input form is present in the Contact section
     (this site intentionally uses direct email contact only — do not test for
