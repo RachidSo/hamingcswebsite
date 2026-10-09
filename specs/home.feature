@@ -27,6 +27,6 @@ Feature: Home / hero section
   Scenario: Stat strip renders correctly
     Then a stat "20 years of experience" is shown with the label "From software developer to team leader, architect, manager, director and CTO"
     And a stat "Automotive, energy, tech" is shown with the label "Industries
-      I have delivered in, across three continents"
+      I have delivered in, across four continents"
     And a stat "Strategy to production" is shown with the label "From AI vision
       and data governance through to secure, running systems"

@@ -46,5 +46,5 @@ Feature: About section
     And the first answer says "If my company had a product to sell"
     And the section text contains no "we" or "our" as a word
     And no individual's name appears anywhere in the section
-    And the second answer links to "https://hamingcsinsights.substack.com/p/why-most-enterprise-ai-projects-stall" with rel="noopener"
+    And the second answer ends with "I tell two of these stories in full in my Substack: Issue #1 on Substack." where "Issue #1 on Substack" links to "https://hamingcsinsights.substack.com/p/why-most-enterprise-ai-projects-stall" with rel="noopener"
     And the section adds no maintenance, support, marketing or product-management offer
