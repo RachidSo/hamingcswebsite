@@ -280,13 +280,18 @@ section.block.on-2 { background: var(--bg-2); }
 .principle-mark { font-family: var(--mono); color: var(--copper); font-size: .82rem; padding-top: 3px; }
 .principle h3 { font-size: 1rem; margin-bottom: 4px; }
 
-/* ---------- founder interview ---------- */
-.interview { max-width: 700px; }
+/* ---------- founder interview (reuses the FAQ component) ---------- */
 .interview-by { font-family: var(--mono); font-size: .74rem; letter-spacing: .04em; color: var(--fg-3); margin-top: 10px; }
-.interview-qa { padding: 24px 0; border-top: 1px solid var(--line); }
-.interview-qa h3 { font-size: 1.1rem; line-height: 1.4; margin-bottom: 10px; }
-.interview-qa p { margin: 0; color: var(--fg-2); font-size: .95rem; line-height: 1.7; }
-.interview-qa a { color: var(--teal); text-decoration: underline; text-underline-offset: 3px; overflow-wrap: anywhere; }
+.qa summary h3 { font: inherit; letter-spacing: inherit; margin: 0; color: inherit; }
+.qa__a a { color: var(--teal); text-decoration: underline; text-underline-offset: 3px; overflow-wrap: anywhere; }
+.interview-cat { font-family: var(--mono); font-size: .74rem; letter-spacing: .04em; color: var(--fg-2); margin: 0; }
+/* without JavaScript: no category list, every category and answer is shown */
+.interview-grid:not(.is-enhanced) { grid-template-columns: 1fr; }
+.interview-grid:not(.is-enhanced) .faq-tabs { display: none; }
+.interview-grid:not(.is-enhanced) .faq-set { display: flex; margin-bottom: 28px; }
+.interview-grid.is-enhanced .interview-cat { display: none; }
+.interview-close { margin-top: 32px; display: flex; flex-wrap: wrap; align-items: center; gap: 16px; }
+.interview-close p { margin: 0; color: var(--fg); font-family: var(--display); font-size: 1.1rem; }
 .principle p { margin: 0; color: var(--fg-2); font-size: .92rem; }
 
 .merge-illustration { width: 100%; height: auto; margin-top: 32px; display: block; }
@@ -358,4 +363,5 @@ footer.site-footer { background: var(--bg-2); border-top: 1px solid var(--line);
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .reveal { opacity: 1; transform: none; transition: none; }
+  .faq-tabs button { transition: none; }
 }

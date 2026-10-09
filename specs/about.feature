@@ -39,12 +39,26 @@ Feature: About section
       useful if someone can operate it, one about security/scale being designed
       in from the start, and one about working globally / remote-first
 
-  Scenario: The founder interview is presented
+  Scenario: The founder interview is presented in the FAQ layout
     Then a section headed "FOUNDER INTERVIEW" is visible inside About, after "MY BACKGROUND"
+    And its heading is "In the Founder's own words" with the subtitle "Answers by the Founder"
     And it is attributed to "Founder" and shows no personal name
-    And it has exactly 5 questions, each an h3 followed by a p answer, in this order: "Why start Hamingcs?", "What's the real reason most enterprise AI projects stall?", "Why build something like QA Agents Cloud yourself, instead of only advising on it?", "What's the one thing you refuse to hide from the people who own the result?", "What's different about how you approach this compared to a typical consulting engagement or AI vendor?"
+    And it reuses the FAQ layout: a category list on the left and question cards with a +/- toggle on the right
+    And the category list has three categories in this order: "Why Hamingcs", "AI projects", "QA Agents Cloud"
+    And "Why Hamingcs" holds "Why start Hamingcs?" and "What's different about how you approach this compared to a typical consulting engagement or AI vendor?"
+    And "AI projects" holds "What's the real reason most enterprise AI projects stall?"
+    And "QA Agents Cloud" holds "Why build something like QA Agents Cloud yourself, instead of only advising on it?" and "What's the one thing you refuse to hide from the people who own the result?"
+    And each question is an h3 inside a summary, answered by a paragraph, and the answers are verbatim
+    And the first question of the selected category is open by default and the others in it are closed
+    And choosing another category shows only that category's questions
     And the first answer says "If my company had a product to sell"
+    And the AI projects answer ends with "I tell two of these stories in full in Issue #1 of my Substack." where "Issue #1 of my Substack" links to "https://hamingcsinsights.substack.com/p/why-most-enterprise-ai-projects-stall" with rel="noopener"
     And the section text contains no "we" or "our" as a word
     And no individual's name appears anywhere in the section
-    And the second answer ends with "I tell two of these stories in full in Issue #1 of my Substack." where "Issue #1 of my Substack" links to "https://hamingcsinsights.substack.com/p/why-most-enterprise-ai-projects-stall" with rel="noopener"
+    And after the last card the line "If this is how you want to work, ask for a pilot." is followed by a "Request a paid pilot" button linking to "mailto:info@hamingcs.com?subject=QA%20pilot%20request"
     And the section adds no maintenance, support, marketing or product-management offer
+
+  Scenario: The founder interview works without JavaScript
+    Given JavaScript is disabled
+    Then the category list is hidden and all five questions are visible as h3 headings with their answers as paragraphs, grouped under their category labels
+    And all five answers are open
