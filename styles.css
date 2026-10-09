@@ -14,7 +14,7 @@
   --fg-3: rgba(242,244,247,.55);
   --fg-4: rgba(242,244,247,.22);
   --teal: #1FC9B0;
-  --app-bg: #f4f6f5; /* the exact background of the QA Agents Cloud screenshots */
+  --app-dark: #10161a; /* the app's dark page colour, read from the corners of the screenshots */
   --teal-deep: #0F6B63;
   --copper: #E0A25E;
   --white: #FFFFFF;
@@ -274,18 +274,42 @@ section.block.on-2 { background: var(--bg-2); }
 .cta p.substack-link { text-align: center; hyphens: none; font-size: .9rem; margin-top: 14px; }
 .cta p.substack-link a { color: var(--teal); text-decoration: underline; text-underline-offset: 3px; }
 /* ---------- QA Agents Cloud section ---------- */
-.shots { display: grid; gap: 56px; margin-top: 48px; }
-.shot { margin: 0; }
-.shot__frame { display: block; background: var(--app-bg); border: 1px solid rgba(255,255,255,.14); border-radius: 12px; box-shadow: 0 30px 70px -40px rgba(0,0,0,.7); padding: 20px; overflow: hidden; }
-.shot__frame img { display: block; width: 100%; height: auto; border: 0; box-shadow: none; }
-.shot figcaption { margin-top: 14px; max-width: 70ch; font-size: .9rem; line-height: 1.55; color: var(--fg-2); }
+.qa-card { margin-top: 24px; padding: 28px; border-radius: 20px; background: var(--bg-2); border: 1px solid var(--line); }
+.qa-card h3 { font-size: 1.3rem; margin: 0 0 8px; }
+.qa-card h4 { font-family: var(--display); font-size: 1.15rem; font-weight: 600; margin: 0 0 8px; color: var(--fg); }
+.qa-card p { margin: 0; color: var(--fg-2); line-height: 1.6; }
+.qa-card__benefit { margin-bottom: 18px !important; color: var(--fg) !important; }
+.qa-card--hero { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 36px; align-items: center; margin-top: 48px; }
+.qa-hero__text p + p { margin-top: 10px; }
+.qa-row-title { margin: 56px 0 0; font-size: 1.3rem; }
+.qa-rows { display: grid; gap: 24px; margin-top: 24px; }
+.qa-rows .qa-card { margin-top: 0; }
+/* alternating rows: the screenshot takes about 60% of the width, the text sits on the other side */
+.qa-row .qa-fig { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); grid-template-rows: auto auto 1fr; column-gap: 36px; align-items: start; }
+.qa-row .qa-frame { grid-column: 1; grid-row: 1 / span 3; }
+.qa-row .qa-fig > h3, .qa-row .qa-fig > h4, .qa-row .qa-fig > .qa-card__benefit, .qa-row .qa-fig > figcaption { grid-column: 2; }
+.qa-row .qa-fig > h3, .qa-row .qa-fig > h4 { grid-row: 1; padding-top: 6px; }
+.qa-row .qa-fig > .qa-card__benefit { grid-row: 2; }
+.qa-row .qa-fig > figcaption { grid-row: 3; margin-top: 0; }
+.qa-row--flip .qa-fig { grid-template-columns: minmax(0, 2fr) minmax(0, 3fr); }
+.qa-row--flip .qa-frame { grid-column: 2; }
+.qa-row--flip .qa-fig > h3, .qa-row--flip .qa-fig > h4, .qa-row--flip .qa-fig > .qa-card__benefit, .qa-row--flip .qa-fig > figcaption { grid-column: 1; }
+.qa-fig { margin: 0; }
+.qa-frame { display: block; background: var(--app-dark); border: 1px solid rgba(31,201,176,.28); border-radius: 12px; box-shadow: 0 0 0 1px rgba(255,255,255,.03), 0 18px 60px -22px rgba(31,201,176,.38); padding: 12px; overflow: hidden; cursor: zoom-in; }
+.qa-frame img { display: block; width: 100%; height: auto; border: 0; box-shadow: none; opacity: 1; }
+.qa-fig figcaption { margin-top: 16px; font-size: 1rem; line-height: 1.6; color: var(--fg); }
+.lightbox { max-width: 96vw; max-height: 94vh; padding: 16px; border: 1px solid rgba(31,201,176,.35); border-radius: 14px; background: var(--app-dark); color: var(--fg); box-shadow: 0 30px 90px rgba(0,0,0,.6); }
+.lightbox::backdrop { background: rgba(5,8,11,.86); }
+.lightbox img { display: block; max-width: 100%; max-height: 74vh; width: auto; height: auto; margin: 0 auto; }
+.lightbox__cap { margin: 12px 0 0; font-size: .95rem; line-height: 1.55; color: var(--fg-2); max-width: 90ch; }
+.lightbox__close { display: block; margin: 0 0 12px auto; padding: 8px 18px; border-radius: 999px; background: var(--bg-3); border: 1px solid var(--line-2); color: var(--fg); font-weight: 600; cursor: pointer; }
 .pilot-block { margin-top: 72px; padding: 32px 28px; border-radius: 20px; background: var(--bg-2); border: 1px solid var(--line); }
 .pilot-block h3 { font-size: 1.3rem; margin: 0 0 10px; }
 .pilot-block p { margin: 0; max-width: 62ch; color: var(--fg-2); line-height: 1.6; }
 .pilot-block .cta-actions { justify-content: flex-start; margin-top: 22px; }
 @media (max-width: 560px) {
-  .shots { gap: 40px; }
-  .shot__frame { padding: 8px; border-radius: 10px; }
+  .qa-card { padding: 20px 16px; }
+  .qa-frame { padding: 8px; border-radius: 10px; }
   .pilot-block { padding: 24px 20px; }
 }
 
@@ -354,6 +378,11 @@ footer.site-footer { background: var(--bg-2); border-top: 1px solid var(--line);
 /* ---------- responsive ---------- */
 
 @media (max-width: 900px) {
+  .qa-card--hero { grid-template-columns: minmax(0, 1fr); }
+  .qa-row .qa-fig, .qa-row--flip .qa-fig { display: block; }
+  .qa-row .qa-fig > h3, .qa-row .qa-fig > h4 { padding-top: 0; margin: 18px 0 8px; }
+  .qa-row .qa-fig > figcaption { margin-top: 0; }
+  .qa-card--hero { gap: 22px; }
   .split, .two-col { grid-template-columns: 1fr; gap: 36px; }
   .stat-row, .plans-grid { grid-template-columns: 1fr; }
   .service-cards { grid-template-columns: repeat(2, 1fr); }
