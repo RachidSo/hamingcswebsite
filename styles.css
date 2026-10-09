@@ -11,7 +11,7 @@
   --line-2: rgba(255,255,255,.16);
   --fg: #F2F4F7;
   --fg-2: rgba(242,244,247,.66);
-  --fg-3: rgba(242,244,247,.42);
+  --fg-3: rgba(242,244,247,.55);
   --fg-4: rgba(242,244,247,.22);
   --teal: #1FC9B0;
   --teal-deep: #0F6B63;
@@ -85,6 +85,12 @@ h1, h2, h3 {
   text-align: justify;
   text-justify: inter-word;
   hyphens: auto;
+}
+
+/* ---------- keyboard focus ---------- */
+
+a:focus-visible, button:focus-visible, summary:focus-visible, .nav-toggle:focus-visible {
+  outline: 2px solid var(--teal); outline-offset: 3px; border-radius: 6px;
 }
 
 /* ---------- buttons ---------- */
