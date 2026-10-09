@@ -1,4 +1,4 @@
-Feature: How We Engage section
+Feature: How I Engage section
   As a prospective client
   I want to understand the ways I can engage Hamingcs
   So that I can pick the model that fits my situation
