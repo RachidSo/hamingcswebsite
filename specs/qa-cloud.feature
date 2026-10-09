@@ -13,16 +13,18 @@ Feature: QA Agents Cloud pilot section
     And it says the screenshots come from runs on a sample application, not from a customer
     And the section text contains no "we" or "our" as a word
 
-  Scenario: Five screenshots are shown, each with its caption, in this order
-    Then the section shows 5 figures in this order, with these exact captions:
-      | figure           | caption                                                                                                              |
+  Scenario: Seven screenshots are shown, each with its caption, in this order
+    Then the section shows 7 figures in this order, with these exact captions:
+      | figure           | caption |
+      | Live progress    | A run in progress: how many agents are working and how far along it is. From a run on a sample application. |
+      | Agent map        | The agents of a run and how they work together. From a small run on a sample application. |
       | Approvals        | Under the Strict rule, every bug waits for your approval before it is filed. Under the default Standard rule, only low-severity, high-confidence bugs are filed automatically. |
       | Run results      | A finished run on a sample application: tests, findings, and what needs approval. My own run, not a customer result. |
-      | Concurrency      | How many agents ran at the same time in one run. The tester limit is a setting I choose, not a guarantee.            |
+      | Concurrency      | How many agents ran at the same time in one run. The tester limit is a setting I choose, not a guarantee. |
       | Run rules        | Run rules: who approves bugs, and how many tests run at once. Windows desktop apps are always Strict and run one at a time. |
-      | Estimated cost   | Estimated cost by agent for the same run. Costs are estimates; your own Anthropic account is billed directly.        |
-    And the live progress and agent map figures are added when those screenshots exist; there is no broken image reference in the meantime
+      | Estimated cost   | Estimated cost by agent for the same run. Costs are estimates; your own Anthropic account is billed directly. |
     And the "workers only" concurrency image is not used
+    And no screenshot shows an email address, tenant name, token, key, URL or real target name (names and run IDs are blurred or cropped)
 
   Scenario: Screenshots sit in a window frame that matches the app
     Then each screenshot is inside a frame with the background "#f4f6f5" (the CSS variable "--app-bg"), a 1px border, rounded corners, a soft shadow and 8 to 20 px of padding
