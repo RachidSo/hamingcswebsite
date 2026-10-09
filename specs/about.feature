@@ -15,6 +15,7 @@ Feature: About section
 
   Scenario: "My background" narrative is present and names no individuals
     Then a section headed "MY BACKGROUND" is visible
+    And its lead sentence reads "Two decades of enterprise experience, earned on the way up — not assembled from a slide."
     And it describes hands-on origins in automotive diagnostic software (Java)
       and architecture work
     And it describes progression to director/CTO-level ownership of a 300-person
