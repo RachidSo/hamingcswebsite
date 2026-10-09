@@ -38,3 +38,13 @@ Feature: About section
     And it lists 3 working principles, including one about strategy only being
       useful if someone can operate it, one about security/scale being designed
       in from the start, and one about working globally / remote-first
+
+  Scenario: The founder interview is presented
+    Then a section headed "FOUNDER INTERVIEW" is visible inside About, after "MY BACKGROUND"
+    And it is attributed to "Founder" and shows no personal name
+    And it has exactly 5 questions, each an h3 followed by a p answer, in this order: "Why start Hamingcs?", "What's the real reason most enterprise AI projects stall?", "Why build something like QA Agents Cloud yourself, instead of only advising on it?", "What's the one thing you refuse to hide from the people who own the result?", "What's different about how you approach this compared to a typical consulting engagement or AI vendor?"
+    And the first answer says "If my company had a product to sell"
+    And the section text contains no "we" or "our" as a word
+    And no individual's name appears anywhere in the section
+    And the second answer links to "https://hamingcsinsights.substack.com/p/why-most-enterprise-ai-projects-stall" with rel="noopener"
+    And the section adds no maintenance, support, marketing or product-management offer
