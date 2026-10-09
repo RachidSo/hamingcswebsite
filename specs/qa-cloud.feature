@@ -13,13 +13,17 @@ Feature: QA Agents Cloud pilot section
     And it says the screenshots come from runs on a sample application, not from a customer
     And the section text contains no "we" or "our" as a word
 
-  Scenario: The section is laid out as a hero, a strip, a row of three cards and a "Run details" row
+  Scenario: The section is laid out as a hero, a strip, three alternating rows and a "Run details" block
     Then a hero card shows the agent map large, with the headline "Agents that work as a team." and two short lines of text beside it
     And below it a slim full-width card shows the live progress image
-    And below that a row of three cards is titled "Approvals", "Run rules" and "Cost", each with a one-line benefit above its image
-    And below that a "Run details" row holds two cards, "Run results" and "Concurrency"
+    And below that three full-width rows are titled "Approvals", "Run rules" and "Cost", each with a one-line benefit and its caption
+    And in each row the screenshot takes about 60% of the width and the text (title, benefit line, caption) sits on the other side
+    And the screenshot sits on the left in the first row, on the right in the second, and on the left in the third
+    And below that a "Run details" heading is followed by two full-width rows, "Run results" (screenshot on the right) and "Concurrency" (screenshot on the left)
+    And at 1280 px no screenshot in these rows is narrower than 480 px
+    And the Concurrency image is the chart only (no description line and no toggle), cropped at 2x
     And the pilot block follows
-    And at 390 px every card is in a single column and the page has no horizontal scroll
+    And at 390 px every row is a single column with the screenshot first, then the title, benefit line and caption, and the page has no horizontal scroll
 
   Scenario: Seven dark screenshots are shown, each with its caption inside its card, in this order
     Then the section shows 7 figures in this order, with these exact captions:
@@ -31,7 +35,7 @@ Feature: QA Agents Cloud pilot section
       | Estimated cost   | Estimated cost by agent for the same run: the first four of eight agents. Costs are estimates; your own Anthropic account is billed directly. |
       | Run results      | A finished run on a sample application: tests, findings, and what needs approval. My own run, not a customer result. |
       | Concurrency      | How many agents ran at the same time in one run. The tester limit is a setting I choose, not a guarantee. |
-    And each caption is in the page's normal text size (not smaller than the body text) and sits inside its card, below the image
+    And each caption is in the page's normal text size (not smaller than the body text) and sits inside its card (beside the image in the alternating rows, below it in the hero and the strip)
     And the light screenshots, the "workers only" concurrency image and the other agent-map captures are not used
     And no screenshot shows an email address, tenant name, token, key, URL or real target name (names and run IDs are blurred or cropped)
 
