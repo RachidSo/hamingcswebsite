@@ -282,6 +282,7 @@ section.block.on-2 { background: var(--bg-2); }
 
 /* ---------- founder interview (reuses the FAQ component) ---------- */
 .interview-by { font-family: var(--mono); font-size: .74rem; letter-spacing: .04em; color: var(--fg-3); margin-top: 10px; }
+.interview-grid .qa__a { hyphens: manual; -webkit-hyphens: manual; }
 .qa summary h3 { font: inherit; letter-spacing: inherit; margin: 0; color: inherit; }
 .qa__a a { color: var(--teal); text-decoration: underline; text-underline-offset: 3px; overflow-wrap: anywhere; }
 .interview-cat { font-family: var(--mono); font-size: .74rem; letter-spacing: .04em; color: var(--fg-2); margin: 0; }
