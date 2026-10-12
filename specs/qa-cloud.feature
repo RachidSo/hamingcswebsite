@@ -18,6 +18,7 @@ Feature: QA Agents Cloud pilot section
     And the paragraph names the coordinator, planner, generator, executor, triage agent and reporter, says the coordinator sends a case that does not add up back to the right agent, and says the Standup room keeps the conversation
     And no claim is repeated and the paragraph never says agents message each other directly or talk like people
     And below it a "Standup room" card shows two full-width transcript screenshots, one per row, each with its caption and a line saying it is a recorded, read-only transcript of a finished run
+    And below the Standup room card a "Why it's different" card lists 8 compact points (title plus one or two lines) without screenshots: 2 columns on desktop (4 + 4), 1 column on mobile
     And below that a slim full-width card shows the live progress image
     And below that three full-width rows are titled "Approvals", "Run rules" and "Cost", each with its caption; Approvals and Cost also have a one-line benefit, while Run rules, Run results and Concurrency have only their caption (no duplicated benefit line)
     And in each row the screenshot takes about 60% of the width and the text (title, benefit line, caption) sits on the other side
@@ -81,3 +82,12 @@ Feature: QA Agents Cloud pilot section
   Scenario: The placeholder video ID can never ship
     Then index.html does not contain "PLACEHOLDER_YOUTUBE_ID"
     And "node scripts/check-no-placeholder.mjs" exits with code 0
+
+  Scenario: "Why it's different" lists eight verified points
+    Then the card has the heading "Why it's different" and exactly 8 points, in this order: "You stay in control", "You can read the work", "You see the cost", "It fits how you work", "Start from your specifications", "Your time goes where it counts", "Scale the team up or down" and "Need another role?"
+    And every claim in them is one the app or the code shows (Standard and Strict, Windows desktop always Strict, the Standup room, an estimated cost per agent, CSV and Jira-import downloads, GitHub Issues and Jira Cloud, an email summary and a Slack webhook, a tester limit of 1 to 3 with a default of 3)
+    And the tester limit is described as a setting the coordinator is told to stay within, and says the other agents are not limited by it; it is not called enforced, guaranteed or a hard cap
+    And it says Windows desktop is proven on a sample application only, not yet with a customer, and does not claim Arabic or right-to-left support beyond having run it on sample applications
+    And it names only QA-team roles (never maintenance, support, marketing or product-management agents), gives no hours-saved or percentage figure, no price, no hosted offer and no licence mention
+    And the last point reads "Need a different role on the team, such as another kind of tester? I can build that as another agent. It is agreed in writing as part of the pilot scope."
+    And it uses "I" and never "we" or "our"
