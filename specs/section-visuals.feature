@@ -1,6 +1,6 @@
 Feature: Section visuals
   As a visitor
-  I want a simple picture next to the text in Services, Engagement and Working principles
+  I want a simple picture next to the text in Services, Engagement, the strategy steps and Working principles
   So that the structure of each section is clear at a glance, without any new claims
 
   Background:
@@ -18,6 +18,13 @@ Feature: Section visuals
     Then above the four model cards there is a diagram with four doorways, one for each existing model name: "Advisory", "Interim leadership", "Project delivery" and "QA Agents Cloud pilot"
     And the four paths converge on a single point labelled "One point of contact"
     And the four model cards are unchanged
+
+  Scenario: How I approach strategy shows the four steps as a flow
+    When I view the "Define the issue before you solve it." block
+    Then above the four numbered steps there is a horizontal flow of four nodes, each with a line icon, its number and its existing step title: "01 Define the issue" (magnifier), "02 Wargame the options" (branching paths), "03 Decide, resource, and lead" (flag) and "04 Execute and adapt" (loop arrow)
+    And a line connects the nodes in order, and a small return arrow leads from step 04 back to step 01
+    And the four step texts are unchanged and in their original place
+    And under 700 pixels the flow becomes a vertical list of the same four nodes, without the return arrow
 
   Scenario: Working principles carry an icon each
     When I view the "A few working principles" list
