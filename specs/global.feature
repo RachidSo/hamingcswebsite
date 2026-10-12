@@ -18,7 +18,10 @@ Feature: Global site behavior
     And the page title is "Hamingcs — AI, Data & IT Strategy Consulting"
     And a meta description tag is present and matches the site's positioning copy
     And Open Graph tags (og:title, og:description, og:image, og:url) are present
-    And a Twitter card meta tag is present
+    And og:title and og:description match the page title and description
+    And the share image (og:image and twitter:image) is the 1200 by 630 agent-map card, whose tagline is "QA Agents Cloud: an AI QA team, with a person approving what matters."
+    And og:image:width is 1200, og:image:height is 630, and og:image:alt and twitter:image:alt repeat the tagline
+    And the Twitter card type is summary_large_image
 
   Scenario Outline: Navigation links scroll to the correct in-page section
     Given I am on "https://hamingcs.com/"
