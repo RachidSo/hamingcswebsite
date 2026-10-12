@@ -38,8 +38,8 @@ Feature: How the work is done
     And every card shows a title and two lines, "Agent does:" and "I decide:"
     And the cards are two columns from 900 pixels and one column below, in the style of the "Why it's different" list
     And the "Testing" card adds "QA Agents Cloud is this team, offered as a product." with a link to "#qa-cloud"
-    And the "Maintenance and support" card reads "Agent does: Watches for faults and prepares fixes and answers. Tested on my own products, not yet with customers." and "I decide: What goes out. Support is provided by me, by name."
-    And it makes no other claim about support or maintenance
+    And the "Maintenance and support" card reads "Agent does: Watches for faults and prepares fixes and answers. Tested on my own products." and "I decide: What goes out. Support is provided by me, by name."
+    And it makes no claim of customer use and no other claim about support or maintenance
 
   Scenario: Four short rules follow the cards
     Then four rules are listed:
