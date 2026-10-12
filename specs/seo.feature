@@ -32,6 +32,17 @@ Feature: Search and sharing basics
     And each FAQPage question and answer equals the visible FAQ text word for word
     And it contains no aggregateRating, review, address, telephone, award or personal founder details
 
+  Scenario: The three search phrases appear once or twice, in existing places
+    Then "fractional CTO" appears in the "Interim AI & data leadership" Services card ("Hands-on leadership for building or scaling an AI or data function, including fractional CTO engagements: hiring, structure, budget and P&L ownership, and operating cadence.") and in the FAQ answer to "Can you take P&L or leadership ownership, not just advise?" ("Yes — interim leadership engagements, including fractional CTO engagements, can include full P&L and team ownership at any scale, …")
+    And "AI strategy consulting" appears once, at the start of the "AI readiness & strategy" card text ("AI strategy consulting that starts with an honest assessment of where AI creates real value in your operations — and where it doesn't — followed by a roadmap your teams can actually execute.")
+    And "AI-assisted QA testing" appears once, in the QA Agents Cloud introduction ("QA Agents Cloud is the AI-assisted QA testing product I built and run myself.")
+    And the H1, the title and the meta description are unchanged
+    And the FAQPage answer for the P&L question equals the visible answer word for word
+
+  Scenario: Fonts and logos load lightly
+    Then the web fonts are linked from the head with preconnect and display=swap, not imported from the stylesheet
+    And logo-icon.png is under 60 KB and logo-full.png under 100 KB
+
   Scenario: Crawlers find the right files
     Then robots.txt allows all and names "https://hamingcs.com/sitemap.xml"
     And sitemap.xml lists "https://hamingcs.com/" with a lastmod date
