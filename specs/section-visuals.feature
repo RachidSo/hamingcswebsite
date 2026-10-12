@@ -1,6 +1,6 @@
 Feature: Section visuals
   As a visitor
-  I want a simple picture next to the text in Services, Engagement, the strategy steps and Working principles
+  I want a simple picture next to the text in Services, Engagement, the strategy steps, the career timeline and Working principles
   So that the structure of each section is clear at a glance, without any new claims
 
   Background:
@@ -25,6 +25,21 @@ Feature: Section visuals
     And a line connects the nodes in order, and a small return arrow leads from step 04 back to step 01
     And the four step texts are unchanged and in their original place
     And under 700 pixels the flow becomes a vertical list of the same four nodes, without the return arrow
+
+  Scenario: My background shows the career as a five-step timeline
+    When I view the "MY BACKGROUND" block
+    Then directly under the line "Two decades of enterprise experience, earned on the way up — not assembled from a slide." and above the two existing paragraphs there is a career timeline
+    And a start marker reads "Since 2006"
+    And five steps run in one row with a connecting line and arrowheads, no loop-back arrow, each with a line icon, its number, a title and a one-line caption, as real selectable text:
+      | 01 | Developer                  | Automotive diagnostic software, in Java.                                  |
+      | 02 | Team leader and architect  | Data models, work split across teams, root-cause analysis in production.  |
+      | 03 | Solution design architect  | Enterprise systems, designed to carry load.                               |
+      | 04 | Manager and director       | Budget, P&L and delivery.                                                 |
+      | 05 | CTO                        | Technology and strategy at leadership level.                              |
+    And under the path there are three tags "Automotive", "Energy" and "Digital"
+    And under the tags the line "Customers and teams across the US, Europe, Africa, the Middle East, Japan and China." is shown
+    And under 700 pixels the five steps become a vertical list (icon, number, title, caption), followed by the tags and the markets line
+    And the existing paragraphs are unchanged and in their original order
 
   Scenario: Working principles carry an icon each
     When I view the "A few working principles" list
