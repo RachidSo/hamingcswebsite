@@ -19,7 +19,7 @@ Feature: QA Agents Cloud pilot section
     And no claim is repeated and the paragraph never says agents message each other directly or talk like people
     And below it a "Standup room" card shows two full-width transcript screenshots, one per row, each with its caption and a line saying it is a recorded, read-only transcript of a finished run
     And below that a slim full-width card shows the live progress image
-    And below that three full-width rows are titled "Approvals", "Run rules" and "Cost", each with a one-line benefit and its caption
+    And below that three full-width rows are titled "Approvals", "Run rules" and "Cost", each with its caption; Approvals and Cost also have a one-line benefit, while Run rules, Run results and Concurrency have only their caption (no duplicated benefit line)
     And in each row the screenshot takes about 60% of the width and the text (title, benefit line, caption) sits on the other side
     And the screenshot sits on the left in the first row, on the right in the second, and on the left in the third
     And below that a "Run details" heading is followed by two full-width rows, "Run results" (screenshot on the right) and "Concurrency" (screenshot on the left)
@@ -36,10 +36,10 @@ Feature: QA Agents Cloud pilot section
       | Standup room (b) | Triage sorts the failures into real bugs and environment issues, with a confidence level, and the reporter sends back its filing decisions. From a finished run on a sample application. |
       | Live progress    | A run in progress: how many agents are working and how far along it is. From a run on a sample application. |
       | Approvals        | Under the Strict rule, every bug waits for your approval before it is filed. Under the default Standard rule, only low-severity, high-confidence bugs are filed automatically. |
-      | Run rules        | Run rules: who approves bugs, and how many tests run at once. Windows desktop apps are always Strict and run one at a time. |
+      | Run rules        | Who approves bugs, and how many tests run at once. Windows desktop apps are always Strict and run one at a time. |
       | Estimated cost   | Estimated cost by agent for the same run: the first four of eight agents. Costs are estimates; your own Anthropic account is billed directly. |
       | Run results      | A finished run on a sample application: tests, findings, and what needs approval. My own run, not a customer result. |
-      | Concurrency      | How many agents ran at the same time in one run. The tester limit is a setting I choose, not a guarantee. |
+      | Concurrency      | How many agents ran at the same time in one run. The tester limit is a setting I choose, not a guarantee. From a run on a sample application. |
     And each caption is in the page's normal text size (not smaller than the body text) and sits inside its card (beside the image in the alternating rows, below it in the hero and the strip)
     And the light screenshots, the "workers only" concurrency image and the other agent-map captures are not used
     And no screenshot shows an email address, tenant name, token, key, URL or real target name (names and run IDs are blurred or cropped)
