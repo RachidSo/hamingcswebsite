@@ -63,6 +63,7 @@ specs below have been written against the actual live content.
 | `services.feature` | The 3 service categories × 6 services each (18 total) |
 | `engagement.feature` | "How We Engage" — Advisory / Interim leadership / Project delivery models |
 | `faq.feature` | The FAQ section and its 10 questions |
+| `how-we-work.feature` | The "How the work is done" section: hub-and-spoke diagram, seven role cards, four rules, Substack link |
 | `contact.feature` | Contact details + mailto CTA (there is no contact form — confirmed) |
 
 ## Notes for the QA framework
