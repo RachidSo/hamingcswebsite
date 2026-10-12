@@ -106,7 +106,7 @@ Feature: QA Agents Cloud pilot section
     Then a card with the heading "What to test, and where the bugs go" (id "where-bugs-go") sits right after the "A small QA team, working in the open." card and before "Standup room"
     And its one caption line says: "How a target is set up, and where approved bugs can go: GitHub Issues, Jira or a CSV download. Shown on a sample application."
     And it makes no claim about desktop findings reaching Jira or GitHub and none about customers
-    And its poster ("assets/qa-cloud/qa-video2-poster.webp", a frame of the Where bugs go card with the sample site address blurred) is also a link to "https://www.youtube.com/watch?v=DPlG7iDu3L8" that opens YouTube when scripts are off
+    And its poster ("assets/qa-cloud/qa-video2-poster.webp", a frame of the Where bugs go card with the sample site address blurred) is also a link to "https://www.youtube.com/watch?v=h9YgcsRM2oM" that opens YouTube when scripts are off
     And before Play is pressed the page makes no request to youtube.com or youtube-nocookie.com
-    And pressing Play on it (or focusing it and pressing Enter or Space) replaces the poster with a youtube-nocookie.com embed of video "DPlG7iDu3L8"
+    And pressing Play on it (or focusing it and pressing Enter or Space) replaces the poster with a youtube-nocookie.com embed of video "h9YgcsRM2oM"
     And the two videos play independently: starting one never starts or replaces the other
