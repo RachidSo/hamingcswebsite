@@ -25,7 +25,7 @@ Feature: Section visuals
     And a line connects the nodes in order, and a small return arrow leads from step 04 back to step 01
     And the separate four-row numbered list is gone; its four descriptions, word for word, sit in four cards directly under the four nodes, one card per node, in the same order, with only the description text in each card (no number or title repeated)
     And at 1100 pixels and wider the four cards are in one row of equal height, and a short teal vertical line joins each node's label to its card
-    And between 700 and 1100 pixels the cards form a 2x2 grid of equal height below the diagram, and the vertical lines are hidden
+    And between 700 and 1100 pixels the cards form a 2x2 grid of equal height below the diagram, and the vertical lines are hidden, and each card shows its step number (01 to 04) at the top in the small copper mono style, as the same element that the mobile card uses (not read twice); at 1100 pixels and wider and under 700 pixels the cards show no separate number of this kind
     And under 700 pixels the diagram becomes a vertical list of the four nodes, each one card showing its icon, number, title and its description, with no return arrow and no separate card list
     And each description appears once on the page and each step title once in the visible diagram
     And the card text is left-aligned, never justified or hyphenated
