@@ -14,7 +14,10 @@ Feature: QA Agents Cloud pilot section
     And the section text contains no "we" or "our" as a word
 
   Scenario: The section is laid out as a hero, a strip, three alternating rows and a "Run details" block
-    Then a hero card shows the agent map large, with the headline "A small QA team, working in the open." and one paragraph beside it
+    Then a hero card has the headline "A small QA team, working in the open." and one paragraph on the left, and the Overview screenshot on the right in the same dark teal-bordered frame
+    And the Overview screenshot shows the sidebar section names and the live agent count, with its caption "The Overview: what happened, and what needs you."
+    And the image is lazy-loaded, has the alt text "The QA Agents Cloud Overview: what happened across your targets and what needs your approval, with live agent count.", opens in the lightbox, and on narrow screens stacks under the text
+    And the hero card does not use the agent map image and repeats no text from the paragraph
     And the paragraph names the coordinator, planner, generator, executor, triage agent and reporter, says the coordinator sends a case that does not add up back to the right agent, and says the Standup room keeps the conversation
     And no claim is repeated and the paragraph never says agents message each other directly or talk like people
     And below it a "Standup room" card shows two full-width transcript screenshots, one per row, each with its caption and a line saying it is a recorded, read-only transcript of a finished run
