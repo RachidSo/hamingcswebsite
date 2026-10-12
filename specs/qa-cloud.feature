@@ -14,7 +14,7 @@ Feature: QA Agents Cloud pilot section
     And a second, smaller and muted paragraph says: "Everything below comes from a run on a sample application, not from a customer."
     And the section text contains no "we" or "our" as a word
 
-  Scenario: The section runs in this order: intro, See it live, A small QA team, Standup room, Approvals, Run rules, Run details, Cost, Start with a pilot, then the "Why it's different" list
+  Scenario: The section runs in this order: intro, See it live, A small QA team, What to test and where the bugs go (second video), Standup room, Approvals, Run rules, Run details, Cost, Start with a pilot, then the "Why it's different" list
     Then a hero card has the headline "A small QA team, working in the open." and one paragraph on the left, and the Overview screenshot on the right in the same dark teal-bordered frame
     And the Overview screenshot shows the sidebar section names and the live agent count, with its caption "The Overview: what happened, and what needs you."
     And the image is lazy-loaded, has the alt text "The QA Agents Cloud Overview: what happened across your targets and what needs your approval, with live agent count.", opens in the lightbox, and on narrow screens stacks under the text
@@ -101,3 +101,12 @@ Feature: QA Agents Cloud pilot section
     Then index.html loads "styles.css?v=" and "site.js?v=" with a version value that is changed whenever either file changes
     And before Play is pressed the page makes no request to youtube.com or youtube-nocookie.com
     And pressing Play replaces the poster with a youtube-nocookie.com embed, and without script the poster link opens the YouTube watch URL
+
+  Scenario: A second video, "What to test, and where the bugs go", follows "A small QA team" and uses the same click-to-embed pattern
+    Then a card with the heading "What to test, and where the bugs go" (id "where-bugs-go") sits right after the "A small QA team, working in the open." card and before "Standup room"
+    And its one caption line says: "How a target is set up, and where approved bugs can go: GitHub Issues, Jira or a CSV download. Shown on a sample application."
+    And it makes no claim about desktop findings reaching Jira or GitHub and none about customers
+    And its poster ("assets/qa-cloud/qa-video2-poster.webp", a frame of the Where bugs go card with the sample site address blurred) is also a link to "https://www.youtube.com/watch?v=DPlG7iDu3L8" that opens YouTube when scripts are off
+    And before Play is pressed the page makes no request to youtube.com or youtube-nocookie.com
+    And pressing Play on it (or focusing it and pressing Enter or Space) replaces the poster with a youtube-nocookie.com embed of video "DPlG7iDu3L8"
+    And the two videos play independently: starting one never starts or replaces the other
