@@ -70,7 +70,7 @@ Feature: QA Agents Cloud pilot section
 
   Scenario: A "See it live" video sits at the top of the section
     Then a "See it live" card sits under the intro and above the "Agents that work as a team." card
-    And it says "Watch a run, about 90 seconds, from a run on a sample application."
+    And it says "Watch a run, in under two minutes, from a run on a sample application."
     And the video is a 16:9 poster inside the same dark frame as the screenshots, with a visible "Play" button
     When the page loads, then no request goes to youtube.com or youtube-nocookie.com and nothing plays
     When I click the Play button, or focus it and press Enter or Space
