@@ -14,7 +14,7 @@ Feature: How the work is done
     And no navigation entry is added, because "How I engage", "QA Agents Cloud" and the FAQ have none either
 
   Scenario: The introduction is first person and says the work is supported by agents
-    Then the introduction reads "Hamingcs has no subcontractors. I'm the person you meet, and I'm accountable for what you receive. Where a task is repeatable, I give it to an AI agent (I use Claude Code for the engineering work), and I review the result before it reaches you."
+    Then the introduction reads "Hamingcs has no subcontractors. I'm the person you meet, and I'm accountable for what you receive. Where a task is repeatable, I give it to an AI agent (AI coding agents do the engineering work, under my review), and I review the result before it reaches you."
     And the section never says the work is "run by" agents
     And the section states no numbers and no customer claims
 
@@ -38,7 +38,8 @@ Feature: How the work is done
     And every card shows a title and two lines, "Agent does:" and "I decide:"
     And the cards are two columns from 900 pixels and one column below, in the style of the "Why it's different" list
     And the "Testing" card adds "QA Agents Cloud is this team, offered as a product." with a link to "#qa-cloud"
-    And the "Maintenance and support" card makes no claim that agents support or monitor customers today: it says AI-assisted triage is being designed, mentions the in-app Help widget, and says support is provided by me, by name
+    And the "Maintenance and support" card reads "Agent does: Watches for faults and prepares fixes and answers. Tested on my own products, not yet with customers." and "I decide: What goes out. Support is provided by me, by name."
+    And it makes no other claim about support or maintenance
 
   Scenario: Four short rules follow the cards
     Then four rules are listed:
