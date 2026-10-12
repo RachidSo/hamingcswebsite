@@ -1,0 +1,18 @@
+# Hamingcs
+
+> Hamingcs pairs AI and data strategy with the systems, security, and DevOps architecture needed to run it — plus the leadership to own it. Global, remote-first.
+
+Site: https://hamingcs.com/
+Contact: info@hamingcs.com
+
+## Sections of the home page
+- Services ("Three disciplines. One engagement."): https://hamingcs.com/#services
+- About ("My background"): https://hamingcs.com/#about
+- How I work ("One accountable person. A team of AI agents behind them."): https://hamingcs.com/#how-we-work
+- How I engage ("Four ways in, one point of contact."): https://hamingcs.com/#engage
+- QA Agents Cloud ("AI agents test your software. You decide what gets filed."): https://hamingcs.com/#qa-cloud
+- FAQ ("Answers to the questions that come up most."): https://hamingcs.com/#faq
+- Contact ("Tell me what you're building."): https://hamingcs.com/#contact
+
+## Writing
+- Substack: Hamingcs Insights: https://hamingcsinsights.substack.com/p/start-here

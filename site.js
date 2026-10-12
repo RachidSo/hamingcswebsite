@@ -81,7 +81,7 @@ document.addEventListener('DOMContentLoaded', function () {
   // thumbnail). Without JavaScript the link opens the full-size image in a new tab.
   var lightbox = document.querySelector('.lightbox');
   if (lightbox && typeof lightbox.showModal === 'function') {
-    var lbImg = lightbox.querySelector('img');
+    var lbImg = null;
     var lbCap = lightbox.querySelector('.lightbox__cap');
     var lbTrigger = null;
     document.querySelectorAll('[data-lightbox]').forEach(function (link) {
@@ -91,8 +91,10 @@ document.addEventListener('DOMContentLoaded', function () {
         var thumb = link.querySelector('img');
         var figure = link.closest('figure');
         var cap = figure ? figure.querySelector('figcaption') : null;
+        lbImg = document.createElement('img');
         lbImg.src = link.getAttribute('href');
         lbImg.alt = thumb ? thumb.alt : '';
+        lightbox.insertBefore(lbImg, lbCap);
         lbCap.textContent = cap ? cap.textContent : '';
         lightbox.showModal();
       });
@@ -100,7 +102,7 @@ document.addEventListener('DOMContentLoaded', function () {
     lightbox.querySelector('.lightbox__close').addEventListener('click', function () { lightbox.close(); });
     lightbox.addEventListener('click', function (e) { if (e.target === lightbox) lightbox.close(); });
     lightbox.addEventListener('close', function () {
-      lbImg.removeAttribute('src');
+      if (lbImg) { lbImg.remove(); lbImg = null; }
       if (lbTrigger) lbTrigger.focus();
     });
   }
