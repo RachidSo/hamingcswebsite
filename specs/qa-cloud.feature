@@ -14,7 +14,7 @@ Feature: QA Agents Cloud pilot section
     And a second, smaller and muted paragraph says: "Everything below comes from a run on a sample application, not from a customer."
     And the section text contains no "we" or "our" as a word
 
-  Scenario: The section runs in this order: intro, See it live, A small QA team, Standup room, Approvals, Run rules, Run details, Cost, Start with a pilot, then the "Why it's different" FAQ block
+  Scenario: The section runs in this order: intro, See it live, A small QA team, Standup room, Approvals, Run rules, Run details, Cost, Start with a pilot, then the "Why it's different" list
     Then a hero card has the headline "A small QA team, working in the open." and one paragraph on the left, and the Overview screenshot on the right in the same dark teal-bordered frame
     And the Overview screenshot shows the sidebar section names and the live agent count, with its caption "The Overview: what happened, and what needs you."
     And the image is lazy-loaded, has the alt text "The QA Agents Cloud Overview: what happened across your targets and what needs your approval, with live agent count.", opens in the lightbox, and on narrow screens stacks under the text
@@ -30,7 +30,7 @@ Feature: QA Agents Cloud pilot section
     And at 1280 px no screenshot in these rows is narrower than 480 px
     And the Concurrency image is the chart only (no description line and no toggle), cropped at 2x
     And below that a full-width "Cost" row follows (screenshot on the left), and then the pilot block
-    And after the pilot block the "Why it's different" FAQ block closes the section
+    And after the pilot block the "Why it's different" list closes the section
     And at 390 px every row is a single column with the screenshot first, then the title, benefit line and caption, and the page has no horizontal scroll
 
   Scenario: Nine dark screenshots are shown, each with its caption inside its card, in this order
@@ -87,9 +87,9 @@ Feature: QA Agents Cloud pilot section
     Then index.html does not contain "PLACEHOLDER_YOUTUBE_ID"
     And "node scripts/check-no-placeholder.mjs" exits with code 0
 
-  Scenario: "Why it's different" is an FAQ block of eight verified points after the pilot block
-    Then the block (id "why-different") sits after "Start with a pilot" and is a list of 8 native details/summary items, collapsed by default and operable with Tab, Enter and Space, with no new script
-    And the block has the heading "Why it's different" and exactly 8 items, in this order: "You stay in control", "You can read the work", "You see the cost", "It fits how you work", "Honest about what's proven", "Your time goes where it counts", "Scale the team up or down" and "Need another role?"
+  Scenario: "Why it's different" is a plain visible list of eight verified points after the pilot block
+    Then the block (id "why-different") sits after "Start with a pilot" and is a real list (ul/li) of 8 visible points: no accordion, no details/summary, nothing collapsed and no script, in two columns (4 + 4) from 900 px wide and one column below that, card-free and muted like the rest of the section
+    And the block has the heading "Why it's different" and exactly 8 points, each with its title as a bold lead-in (strong, not a heading) followed by its text, in this order: "You stay in control", "You can read the work", "You see the cost", "It fits how you work", "Honest about what's proven", "Your time goes where it counts", "Scale the team up or down" and "Need another role?"
     And every claim in them is one the app or the code shows (Standard and Strict, Windows desktop always Strict, the Standup room, an estimated cost per agent, CSV and Jira-import downloads, GitHub Issues and Jira Cloud, an email summary and a Slack webhook, a tester limit of 1 to 3 with a default of 3)
     And the tester limit is described as a setting the coordinator is told to stay within, and says the other agents are not limited by it; it is not called enforced, guaranteed or a hard cap
     And it says Windows desktop is proven on a sample application only, not yet with a customer, and does not claim Arabic or right-to-left support beyond having run it on sample applications
