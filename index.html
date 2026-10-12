@@ -26,7 +26,7 @@
 
 <link rel="icon" type="image/png" href="logo-icon.png">
 <link rel="apple-touch-icon" href="logo-icon.png">
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="styles.css?v=20261012b">
 
 <script type="application/ld+json">
 {
@@ -449,11 +449,12 @@
   <div class="wrap">
     <p class="chip reveal"><span class="chip__dot"></span>QA AGENTS CLOUD</p>
     <h2 class="h2 reveal">AI agents test your software. You decide what gets filed.</h2>
-    <p class="lede reveal" style="margin-top: 14px;">QA Agents Cloud is the testing product I built and run myself. A small team of AI agents plans, writes and runs tests against your web application, and a person decides which of the bugs it finds get filed; you choose how strict that is. Every screenshot and the video below come from a run on a sample application, not from a customer.</p>
+    <p class="lede qa-lede reveal" style="margin-top: 14px;">QA Agents Cloud is the testing product I built and run myself. Give it the address of your web application. A small team of AI agents plans the tests, writes them and runs them, then writes up each bug it finds: the steps to reproduce, what it expected and what actually happened. A person decides which bugs get filed to GitHub Issues or Jira Cloud, or exported as a CSV file, and you choose how strict that is.</p>
+    <p class="qa-lede qa-lede--note reveal">Everything below comes from a run on a sample application, not from a customer.</p>
 
     <div class="qa-card qa-video" id="see-it-live">
       <h3>See it live</h3>
-      <p>Watch a run, in under two minutes, from a run on a sample application.</p>
+      <p>A run on a sample application, in under two minutes.</p>
       <div class="qa-frame qa-frame--video" data-youtube-id="lEEUnp4zzEo" data-video-title="QA Agents Cloud: a run on a sample application, under two minutes">
         <a class="qa-video__stage" href="https://www.youtube.com/watch?v=lEEUnp4zzEo" target="_blank" rel="noopener" aria-label="Play the video: a run on a sample application, under two minutes (opens YouTube)">
           <img src="assets/qa-cloud/qa-video-poster.webp" width="1280" height="720" loading="lazy" alt="Video poster: the agent map of a run on a sample application, one coordinator agent connected to two tester agents.">
@@ -494,44 +495,6 @@
         </figure>
     </div>
 
-    <div class="qa-card qa-why" id="why-different">
-      <h3>Why it's different</h3>
-      <ul class="qa-why__grid">
-        <li>
-          <h4>You stay in control</h4>
-          <p>Any bug can wait for your approval before it is filed. You choose Standard or Strict, for the whole instance or for one target. On Windows desktop apps every bug always waits.</p>
-        </li>
-        <li>
-          <h4>You can read the work</h4>
-          <p>Each run keeps its agents' written notes in the Standup room, including when a test case was sent back and why.</p>
-        </li>
-        <li>
-          <h4>You see the cost</h4>
-          <p>Every run shows an estimated cost for each agent, and your own Anthropic account is billed directly.</p>
-        </li>
-        <li>
-          <h4>It fits how you work</h4>
-          <p>Download the findings as a CSV or as a file for Jira import. File approved bugs to GitHub Issues or Jira Cloud (I confirm the Jira connection with you first). Get an email summary after each run, or a post to a Slack webhook.</p>
-        </li>
-        <li>
-          <h4>Honest about what's proven</h4>
-          <p>I have run it on sample applications, including right-to-left Arabic and Japanese pages. Windows desktop is proven on a sample application only, not yet with a customer.</p>
-        </li>
-        <li>
-          <h4>Your time goes where it counts</h4>
-          <p>The agents take the routine testing. The judgement calls stay with you, such as whether a finding is worth filing.</p>
-        </li>
-        <li>
-          <h4>Scale the team up or down</h4>
-          <p>Choose how many tester agents run at once: up to 1, 2 or 3 (the default is up to 3). The coordinator is told to stay within that number; the other agents are not limited by it.</p>
-        </li>
-        <li>
-          <h4>Need another role?</h4>
-          <p>Need a different role on the team, such as another kind of tester? I can build that as another agent. It is agreed in writing as part of the pilot scope.</p>
-        </li>
-      </ul>
-    </div>
-
     <div class="qa-card qa-card--strip">
       <figure class="qa-fig">
           <a class="qa-frame" href="assets/qa-cloud/qa-live-progress-dark.webp" data-lightbox target="_blank" rel="noopener" aria-label="Enlarge the live progress screenshot">
@@ -561,16 +524,6 @@
           <figcaption>Who approves bugs, and how many tester agents run at once (up to 3 by default). Windows desktop apps are always Strict and run one tester agent at a time.</figcaption>
         </figure>
       </article>
-      <article class="qa-card qa-row">
-        <figure class="qa-fig">
-          <a class="qa-frame" href="assets/qa-cloud/qa-cost-dark.webp" data-lightbox target="_blank" rel="noopener" aria-label="Enlarge the Estimated cost screenshot">
-            <img src="assets/qa-cloud/qa-cost-dark.webp" width="2120" height="646" loading="lazy" alt="Estimated cost by agent for one run: the first four of eight agents, each with its duration, tokens and estimated cost.">
-          </a>
-          <h3>Cost</h3>
-          <p class="qa-card__benefit">See an estimate of what each agent costs.</p>
-          <figcaption>Estimated cost by agent for the same run: the first four of eight agents. Costs are estimates; your own Anthropic account is billed directly.</figcaption>
-        </figure>
-      </article>
     </div>
 
     <h3 class="qa-row-title">Run details</h3>
@@ -595,12 +548,37 @@
       </article>
     </div>
 
+    <div class="qa-rows">
+      <article class="qa-card qa-row">
+        <figure class="qa-fig">
+          <a class="qa-frame" href="assets/qa-cloud/qa-cost-dark.webp" data-lightbox target="_blank" rel="noopener" aria-label="Enlarge the Estimated cost screenshot">
+            <img src="assets/qa-cloud/qa-cost-dark.webp" width="2120" height="646" loading="lazy" alt="Estimated cost by agent for one run: the first four of eight agents, each with its duration, tokens and estimated cost.">
+          </a>
+          <h3>Cost</h3>
+          <p class="qa-card__benefit">See an estimate of what each agent costs.</p>
+          <figcaption>Estimated cost by agent for the same run: the first four of eight agents. Costs are estimates; your own Anthropic account is billed directly.</figcaption>
+        </figure>
+      </article>
+    </div>
+
     <div class="pilot-block reveal">
       <h3>Start with a pilot</h3>
       <p>The first step is a paid, fixed-scope pilot on your web application. Scope and fee are agreed in writing before it starts, and I make no promises about results. Windows desktop testing is proven on a sample application, not yet with a customer.</p>
       <div class="cta-actions">
         <a href="mailto:info@hamingcs.com?subject=QA%20pilot%20request" class="btn btn-primary">Request a pilot</a>
       </div>
+    </div>
+
+    <div class="qa-faq" id="why-different">
+      <h3>Why it's different</h3>
+      <details class="qa"><summary><h4>You stay in control</h4></summary><div class="qa__a">Any bug can wait for your approval before it is filed. You choose Standard or Strict, for the whole instance or for one target. On Windows desktop apps every bug always waits.</div></details>
+      <details class="qa"><summary><h4>You can read the work</h4></summary><div class="qa__a">Each run keeps its agents' written notes in the Standup room, including when a test case was sent back and why.</div></details>
+      <details class="qa"><summary><h4>You see the cost</h4></summary><div class="qa__a">Every run shows an estimated cost for each agent, and your own Anthropic account is billed directly.</div></details>
+      <details class="qa"><summary><h4>It fits how you work</h4></summary><div class="qa__a">Download the findings as a CSV or as a file for Jira import. File approved bugs to GitHub Issues or Jira Cloud (I confirm the Jira connection with you first). Get an email summary after each run, or a post to a Slack webhook.</div></details>
+      <details class="qa"><summary><h4>Honest about what's proven</h4></summary><div class="qa__a">I have run it on sample applications, including right-to-left Arabic and Japanese pages. Windows desktop is proven on a sample application only, not yet with a customer.</div></details>
+      <details class="qa"><summary><h4>Your time goes where it counts</h4></summary><div class="qa__a">The agents take the routine testing. The judgement calls stay with you, such as whether a finding is worth filing.</div></details>
+      <details class="qa"><summary><h4>Scale the team up or down</h4></summary><div class="qa__a">Choose how many tester agents run at once: up to 1, 2 or 3 (the default is up to 3). The coordinator is told to stay within that number; the other agents are not limited by it.</div></details>
+      <details class="qa"><summary><h4>Need another role?</h4></summary><div class="qa__a">Need a different role on the team, such as another kind of tester? I can build that as another agent. It is agreed in writing as part of the pilot scope.</div></details>
     </div>
   </div>
 </section>
@@ -709,6 +687,6 @@
   <p class="lightbox__cap"></p>
 </dialog>
 
-<script src="site.js"></script>
+<script src="site.js?v=20261012"></script>
 </body>
 </html>

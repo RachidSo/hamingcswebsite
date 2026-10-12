@@ -88,6 +88,9 @@ h1, h2, h3 {
   hyphens: auto;
 }
 
+.qa-lede { text-align: left; text-justify: auto; hyphens: none; -webkit-hyphens: none; max-width: 70ch; }
+.qa-lede--note { margin: 10px 0 0; font-size: .92rem; line-height: 1.55; color: var(--fg-3); }
+
 /* ---------- keyboard focus ---------- */
 
 a:focus-visible, button:focus-visible, summary:focus-visible, .nav-toggle:focus-visible {
@@ -341,7 +344,10 @@ section.block.on-2 { background: var(--bg-2); }
 /* ---------- founder interview (reuses the FAQ component) ---------- */
 .interview-by { font-family: var(--mono); font-size: .74rem; letter-spacing: .04em; color: var(--fg-3); margin-top: 10px; }
 .interview-grid .qa__a { hyphens: manual; -webkit-hyphens: manual; }
-.qa summary h3 { font: inherit; letter-spacing: inherit; margin: 0; color: inherit; }
+.qa summary h3, .qa summary h4 { font: inherit; letter-spacing: inherit; margin: 0; color: inherit; }
+.qa-faq { margin-top: 56px; }
+.qa-faq > h3 { font-size: 1.3rem; margin: 0 0 16px; }
+.qa-faq .qa + .qa { margin-top: 12px; }
 .qa__a a { color: var(--teal); text-decoration: underline; text-underline-offset: 3px; overflow-wrap: anywhere; }
 .interview-cat { font-family: var(--mono); font-size: .74rem; letter-spacing: .04em; color: var(--fg-2); margin: 0; }
 /* without JavaScript: no category list, every category and answer is shown */

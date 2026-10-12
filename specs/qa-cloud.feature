@@ -9,11 +9,12 @@ Feature: QA Agents Cloud pilot section
 
   Scenario: Heading and introduction are in the first person
     Then the heading is "AI agents test your software. You decide what gets filed."
-    And the introduction is 2 to 3 sentences written in the first person ("I") and describes a small team of AI agents
-    And it says the screenshots and the video come from a run on a sample application, not from a customer
+    And the introduction reads: "QA Agents Cloud is the testing product I built and run myself. Give it the address of your web application. A small team of AI agents plans the tests, writes them and runs them, then writes up each bug it finds: the steps to reproduce, what it expected and what actually happened. A person decides which bugs get filed to GitHub Issues or Jira Cloud, or exported as a CSV file, and you choose how strict that is."
+    And it is written in the first person ("I"), left-aligned (never justified), with hyphenation off and a line length of about 70ch
+    And a second, smaller and muted paragraph says: "Everything below comes from a run on a sample application, not from a customer."
     And the section text contains no "we" or "our" as a word
 
-  Scenario: The section is laid out as a hero, a strip, three alternating rows and a "Run details" block
+  Scenario: The section runs in this order: intro, See it live, A small QA team, Standup room, Approvals, Run rules, Run details, Cost, Start with a pilot, then the "Why it's different" FAQ block
     Then a hero card has the headline "A small QA team, working in the open." and one paragraph on the left, and the Overview screenshot on the right in the same dark teal-bordered frame
     And the Overview screenshot shows the sidebar section names and the live agent count, with its caption "The Overview: what happened, and what needs you."
     And the image is lazy-loaded, has the alt text "The QA Agents Cloud Overview: what happened across your targets and what needs your approval, with live agent count.", opens in the lightbox, and on narrow screens stacks under the text
@@ -21,15 +22,15 @@ Feature: QA Agents Cloud pilot section
     And the paragraph names the coordinator, planner, generator, executor, triage agent and reporter, says the coordinator sends a case that does not add up back to the right agent, and says the Standup room keeps the conversation
     And no claim is repeated and the paragraph never says agents message each other directly or talk like people
     And below it a "Standup room" card shows two full-width transcript screenshots, one per row, each with its caption and a line saying it is a recorded, read-only transcript of a finished run
-    And below the Standup room card a "Why it's different" card lists 8 compact points (title plus one or two lines) without screenshots: 2 columns on desktop (4 + 4), 1 column on mobile
     And below that a slim full-width card shows the live progress image
-    And below that three full-width rows are titled "Approvals", "Run rules" and "Cost", each with its caption; Approvals and Cost also have a one-line benefit, while Run rules, Run results and Concurrency have only their caption (no duplicated benefit line)
+    And below that two full-width rows are titled "Approvals" and "Run rules", each with its caption; Approvals also has a one-line benefit, while Run rules, Run results, Concurrency and Cost keep their own text (no duplicated benefit line)
     And in each row the screenshot takes about 60% of the width and the text (title, benefit line, caption) sits on the other side
-    And the screenshot sits on the left in the first row, on the right in the second, and on the left in the third
+    And the screenshot sits on the left in the Approvals row and on the right in the Run rules row
     And below that a "Run details" heading is followed by two full-width rows, "Run results" (screenshot on the right) and "Concurrency" (screenshot on the left)
     And at 1280 px no screenshot in these rows is narrower than 480 px
     And the Concurrency image is the chart only (no description line and no toggle), cropped at 2x
-    And the pilot block follows
+    And below that a full-width "Cost" row follows (screenshot on the left), and then the pilot block
+    And after the pilot block the "Why it's different" FAQ block closes the section
     And at 390 px every row is a single column with the screenshot first, then the title, benefit line and caption, and the page has no horizontal scroll
 
   Scenario: Nine dark screenshots are shown, each with its caption inside its card, in this order
@@ -70,7 +71,7 @@ Feature: QA Agents Cloud pilot section
 
   Scenario: A "See it live" video sits at the top of the section
     Then a "See it live" card sits under the intro and above the "Agents that work as a team." card
-    And it says "Watch a run, in under two minutes, from a run on a sample application."
+    And it says "A run on a sample application, in under two minutes."
     And the video is a 16:9 poster inside the same dark frame as the screenshots, with a visible "Play" button
     When the page loads, then no request goes to youtube.com or youtube-nocookie.com and nothing plays
     When I click the Play button, or focus it and press Enter or Space
@@ -86,11 +87,17 @@ Feature: QA Agents Cloud pilot section
     Then index.html does not contain "PLACEHOLDER_YOUTUBE_ID"
     And "node scripts/check-no-placeholder.mjs" exits with code 0
 
-  Scenario: "Why it's different" lists eight verified points
-    Then the card has the heading "Why it's different" and exactly 8 points, in this order: "You stay in control", "You can read the work", "You see the cost", "It fits how you work", "Honest about what's proven", "Your time goes where it counts", "Scale the team up or down" and "Need another role?"
+  Scenario: "Why it's different" is an FAQ block of eight verified points after the pilot block
+    Then the block (id "why-different") sits after "Start with a pilot" and is a list of 8 native details/summary items, collapsed by default and operable with Tab, Enter and Space, with no new script
+    And the block has the heading "Why it's different" and exactly 8 items, in this order: "You stay in control", "You can read the work", "You see the cost", "It fits how you work", "Honest about what's proven", "Your time goes where it counts", "Scale the team up or down" and "Need another role?"
     And every claim in them is one the app or the code shows (Standard and Strict, Windows desktop always Strict, the Standup room, an estimated cost per agent, CSV and Jira-import downloads, GitHub Issues and Jira Cloud, an email summary and a Slack webhook, a tester limit of 1 to 3 with a default of 3)
     And the tester limit is described as a setting the coordinator is told to stay within, and says the other agents are not limited by it; it is not called enforced, guaranteed or a hard cap
     And it says Windows desktop is proven on a sample application only, not yet with a customer, and does not claim Arabic or right-to-left support beyond having run it on sample applications
     And it names only QA-team roles (never maintenance, support, marketing or product-management agents), gives no hours-saved or percentage figure, no price, no hosted offer and no licence mention
     And the last point reads "Need a different role on the team, such as another kind of tester? I can build that as another agent. It is agreed in writing as part of the pilot scope."
     And it uses "I" and never "we" or "our"
+
+  Scenario: Stylesheet and script URLs carry a version so the video handler is never stale
+    Then index.html loads "styles.css?v=" and "site.js?v=" with a version value that is changed whenever either file changes
+    And before Play is pressed the page makes no request to youtube.com or youtube-nocookie.com
+    And pressing Play replaces the poster with a youtube-nocookie.com embed, and without script the poster link opens the YouTube watch URL

@@ -43,4 +43,5 @@ Feature: How I Engage section
     Then a fourth engagement card titled "QA Agents Cloud pilot" tagged "Pilot" is visible below the other three and spans the full width
     And it says "AI agents test your web app from your specifications, and a person decides which bugs get filed."
     And it has a "See the pilot" button linking to "#qa-cloud"
+    And that section opens with its intro and "See it live", and ends with "Start with a pilot" followed by the "Why it's different" FAQ block
     And it shows no price

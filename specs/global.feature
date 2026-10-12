@@ -83,9 +83,9 @@ Feature: Global site behavior
     Then every image (including the logo) has a non-empty "alt" attribute
     And heading tags follow a logical order (one "h1" per page, no skipped levels
       across the many section headings: WHY THREE DISCIPLINES, MY BACKGROUND,
-      HOW I APPROACH STRATEGY, HOW I WORK, SERVICES, HOW I ENGAGE, QA AGENTS CLOUD, FAQ, CONTACT)
+      HOW I APPROACH STRATEGY, HOW I WORK, SERVICES, HOW I ENGAGE, QA AGENTS CLOUD, FAQ, CONTACT; inside QA AGENTS CLOUD the "Why it's different" block is an FAQ-style accordion after the pilot block)
     And text/background color contrast meets WCAG AA (4.5:1 for normal text)
-    And all interactive elements (nav links, CTAs, FAQ accordion, mailto link)
+    And all interactive elements (nav links, CTAs, FAQ accordions including "Why it's different", mailto link)
       are reachable and operable via keyboard (Tab / Enter)
 
   Scenario: No broken links on the site
