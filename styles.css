@@ -345,9 +345,12 @@ section.block.on-2 { background: var(--bg-2); }
 .interview-by { font-family: var(--mono); font-size: .74rem; letter-spacing: .04em; color: var(--fg-3); margin-top: 10px; }
 .interview-grid .qa__a { hyphens: manual; -webkit-hyphens: manual; }
 .qa summary h3, .qa summary h4 { font: inherit; letter-spacing: inherit; margin: 0; color: inherit; }
-.qa-faq { margin-top: 56px; }
-.qa-faq > h3 { font-size: 1.3rem; margin: 0 0 16px; }
-.qa-faq .qa + .qa { margin-top: 12px; }
+.qa-why-list { margin-top: 56px; }
+.qa-why-list > h3 { font-size: 1.3rem; margin: 0 0 8px; }
+.qa-why-list__grid { list-style: none; margin: 18px 0 0; padding: 0; display: grid; grid-template-columns: minmax(0, 1fr); gap: 18px; }
+.qa-why-list__grid li { margin: 0; padding-top: 16px; border-top: 1px solid var(--line); color: var(--fg-2); font-size: .96rem; line-height: 1.6; text-align: left; hyphens: none; -webkit-hyphens: none; }
+.qa-why-list__grid strong { display: block; margin-bottom: 6px; color: var(--fg); font-family: var(--display); font-size: 1.1rem; font-weight: 600; }
+@media (min-width: 900px) { .qa-why-list__grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); grid-template-rows: repeat(4, auto); grid-auto-flow: column; gap: 18px 48px; } }
 .qa__a a { color: var(--teal); text-decoration: underline; text-underline-offset: 3px; overflow-wrap: anywhere; }
 .interview-cat { font-family: var(--mono); font-size: .74rem; letter-spacing: .04em; color: var(--fg-2); margin: 0; }
 /* without JavaScript: no category list, every category and answer is shown */
