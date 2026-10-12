@@ -65,6 +65,7 @@ specs below have been written against the actual live content.
 | `faq.feature` | The FAQ section and its 10 questions |
 | `how-we-work.feature` | The "How the work is done" section: hub-and-spoke diagram, seven role cards, four rules, Substack link |
 | `section-visuals.feature` | The three section visuals: Services circles, Engagement doorways, working-principle icons |
+| `seo.feature` | Search and sharing basics: head tags, single H1, company share card, favicons, JSON-LD, robots, sitemap, llms.txt, image and link hygiene |
 | `contact.feature` | Contact details + mailto CTA (there is no contact form — confirmed) |
 
 ## Notes for the QA framework
