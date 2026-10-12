@@ -14,7 +14,9 @@ Feature: How the work is done
     And no navigation entry is added, because "How I engage", "QA Agents Cloud" and the FAQ have none either
 
   Scenario: The introduction is first person and says the work is supported by agents
-    Then the introduction reads "Hamingcs has no subcontractors. I'm the person you meet, and I'm accountable for what you receive. Where a task is repeatable, I give it to an AI agent (AI coding agents do the engineering work, under my review), and I review the result before it reaches you."
+    Then the introduction is two paragraphs. The first reads "Hamingcs has no subcontractors. I'm the person you meet, and I'm accountable for what you receive." The second reads "Where a task is repeatable, I give it to an AI agent (AI coding agents do the engineering work, under my review), and I review the result before it reaches you."
+    And the two paragraphs use the same flex layout as the About introduction: side by side while each can stay at 34ch or wider, stacked below that
+    And the introduction has no narrow maximum width, so on desktop it fills the container like the heading above it
     And the section never says the work is "run by" agents
     And the section states no numbers and no customer claims
 
@@ -22,15 +24,21 @@ Feature: How the work is done
     Then the diagram is an inline SVG inside an element with role "img" and a descriptive aria-label
     And no image file and no script library is loaded for it
     And the centre circle, in the dark brand colour, reads "Me, accountable" with the sub-line "reviews and signs off everything"
-    And seven nodes in the accent colour surround it, each with a line icon and one word: "Architecture", "Development", "DevOps", "Testing", "Product", "Marketing", "Support"
-    And a line joins each node to the centre, with a small "review" marker on it
+    And seven nodes in the accent colour surround it, each with a line icon and a two-line label: the role on line 1 ("Architecture", "Development", "DevOps", "Testing", "Product", "Marketing", "Support") and the word "agent" on line 2 in a lighter weight and colour, so each node reads "<Role> agent"
+    And behind each of the seven nodes two more circles of the same size are drawn at lower opacity, offset up and to the right, to show that a role can be several agents
+    And the centre "Me, accountable" circle is not stacked
+    And a line joins each node to the centre, with exactly one small "review" marker on it per role, not one per stacked circle
+    And directly under the diagram a legend reads "Each role can run as several agents at once, when the work needs it." with no numbers and no "x2" or "x3" labels
+    And the diagram's aria-label describes the seven agents, the stacks and the review step
     And nothing in the diagram is animated, and no robot or stock imagery is used
-    And no label overlaps another label at 2560, 1867, 1440, 1024 or 390 pixels wide
+    And no label, stacked circle, review marker or neighbouring node overlaps another at 2560, 1867, 1440, 1024, 780 or 390 pixels wide
 
   Scenario: Under 700 pixels the diagram becomes a vertical list
     When the viewport is narrower than 700 pixels
     Then the radial layout is hidden
-    And the centre block "Me, accountable" comes first, followed by the seven nodes in the same order, each with its icon, its one-word label and a "review" tag
+    And the centre block "Me, accountable" comes first, followed by the seven nodes in the same order, each with its icon, a single-line label "<Role> agent" (for example "Development agent") and a "review" tag
+    And there are no stacked circles in the list
+    And the legend "Each role can run as several agents at once, when the work needs it." is shown above the list instead of below it
     And from 700 pixels up the radial layout is shown and the list is hidden
 
   Scenario: Seven role cards are visible, not accordions
