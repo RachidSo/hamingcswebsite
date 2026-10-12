@@ -461,6 +461,39 @@ footer.site-footer { background: var(--bg-2); border-top: 1px solid var(--line);
 .vis__dot { fill: var(--teal); stroke: var(--teal-deep); stroke-width: 3; }
 .vis__path { fill: none; stroke: var(--teal); stroke-width: 1.5; opacity: .6; }
 .vis__node circle { fill: var(--bg-3); stroke: var(--teal); stroke-width: 1.5; }
+/* ---------- About: career timeline (real HTML text; SVG only for icons and connecting lines) ---------- */
+.tl { flex: 1 1 100%; margin: 4px 0 8px; text-align: left; hyphens: none; }
+.tl__start { display: inline-flex; align-items: center; gap: 8px; margin: 0 0 18px; font-family: var(--mono); font-size: .8rem; letter-spacing: .08em; text-transform: uppercase; color: var(--fg-2); font-size: .8rem; line-height: 1.2; }
+.tl__dot { width: 9px; height: 9px; border-radius: 50%; background: var(--copper); }
+.tl__steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 0 14px; }
+.tl__step { position: relative; min-width: 0; }
+.tl__ic { display: flex; align-items: center; justify-content: center; width: 52px; height: 52px; border-radius: 50%; background: var(--bg-3); border: 1.5px solid var(--teal); color: var(--teal); }
+.tl__ic svg { display: block; }
+.tl__ic use { color: var(--teal); }
+.tl__ic .vc { stroke: var(--copper); }
+.tl__link { position: absolute; top: 20px; left: 60px; right: -8px; display: flex; align-items: center; height: 12px; color: var(--teal); }
+.tl__line { flex: 1 1 auto; min-width: 0; width: 100%; height: 12px; }
+.tl__line line { stroke: var(--teal); stroke-width: 1.5; opacity: .6; }
+.tl__head { flex: none; margin-left: -7px; }
+.tl__head path { fill: none; stroke: var(--teal); stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; opacity: .85; }
+.tl__num { display: block; margin-top: 12px; font-family: var(--mono); font-size: .75rem; letter-spacing: .06em; color: var(--fg-3); }
+.tl__title { margin: 4px 0 0; font-family: var(--display); font-weight: 600; font-size: 1.02rem; line-height: 1.25; color: var(--fg); }
+.tl__cap { margin: 6px 0 0; font-size: .9rem; line-height: 1.45; color: var(--fg-2); letter-spacing: 0; }
+.tl__tags { list-style: none; margin: 26px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.tl__tags li { padding: 5px 12px; border: 1px solid var(--line-2); border-radius: 999px; font-family: var(--mono); font-size: .75rem; letter-spacing: .06em; text-transform: uppercase; color: var(--fg-2); }
+.tl .nb { white-space: nowrap; }
+.tl__markets { margin: 14px 0 0; font-size: .95rem; line-height: 1.45; color: var(--fg-3); letter-spacing: 0; }
+@media (max-width: 699.98px) {
+  .tl__steps { display: block; position: relative; }
+  .tl__steps::before { content: ""; position: absolute; left: 25px; top: 26px; bottom: 26px; border-left: 1.5px solid rgba(31,201,176,.55); }
+  .tl__step { display: grid; grid-template-columns: 52px 1fr; column-gap: 14px; align-items: start; padding-bottom: 18px; }
+  .tl__step:last-child { padding-bottom: 0; }
+  .tl__ic { grid-row: 1 / span 3; }
+  .tl__link { display: none; }
+  .tl__num { margin-top: 2px; }
+  .tl__title { margin-top: 0; }
+  .tl__cap { margin-top: 4px; }
+}
 .vis--flow { margin: 24px auto 4px; }
 .vis__lbl--step { font-size: 17px; }
 .vis__num { fill: var(--fg-3); font-family: var(--mono); font-size: 13px; letter-spacing: .06em; }
