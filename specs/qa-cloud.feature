@@ -9,13 +9,16 @@ Feature: QA Agents Cloud pilot section
 
   Scenario: Heading and introduction are in the first person
     Then the heading is "AI agents test your software. You decide what gets filed."
-    And the introduction is 2 to 3 sentences written in the first person ("I")
-    And it says the screenshots come from runs on a sample application, not from a customer
+    And the introduction is 2 to 3 sentences written in the first person ("I") and describes a small team of AI agents
+    And it says the screenshots and the video come from a run on a sample application, not from a customer
     And the section text contains no "we" or "our" as a word
 
   Scenario: The section is laid out as a hero, a strip, three alternating rows and a "Run details" block
-    Then a hero card shows the agent map large, with the headline "Agents that work as a team." and two short lines of text beside it
-    And below it a slim full-width card shows the live progress image
+    Then a hero card shows the agent map large, with the headline "A small QA team, working in the open." and one paragraph beside it
+    And the paragraph names the coordinator, planner, generator, executor, triage agent and reporter, says the coordinator sends a case that does not add up back to the right agent, and says the Standup room keeps the conversation
+    And no claim is repeated and the paragraph never says agents message each other directly or talk like people
+    And below it a "Standup room" card shows two full-width transcript screenshots, one per row, each with its caption and a line saying it is a recorded, read-only transcript of a finished run
+    And below that a slim full-width card shows the live progress image
     And below that three full-width rows are titled "Approvals", "Run rules" and "Cost", each with a one-line benefit and its caption
     And in each row the screenshot takes about 60% of the width and the text (title, benefit line, caption) sits on the other side
     And the screenshot sits on the left in the first row, on the right in the second, and on the left in the third
@@ -25,10 +28,12 @@ Feature: QA Agents Cloud pilot section
     And the pilot block follows
     And at 390 px every row is a single column with the screenshot first, then the title, benefit line and caption, and the page has no horizontal scroll
 
-  Scenario: Seven dark screenshots are shown, each with its caption inside its card, in this order
-    Then the section shows 7 figures in this order, with these exact captions:
+  Scenario: Nine dark screenshots are shown, each with its caption inside its card, in this order
+    Then the section shows 9 figures in this order, with these exact captions:
       | figure           | caption |
       | Agent map        | The agents of a run and how they work together. From a small run on a sample application. |
+      | Standup room (a) | The Standup room: the coordinator sends a test case back to the planner, and the fix goes on to the test generator. From a finished run on a sample application. |
+      | Standup room (b) | Triage sorts the failures into real bugs and environment issues, with a confidence level, and the reporter sends back its filing decisions. From a finished run on a sample application. |
       | Live progress    | A run in progress: how many agents are working and how far along it is. From a run on a sample application. |
       | Approvals        | Under the Strict rule, every bug waits for your approval before it is filed. Under the default Standard rule, only low-severity, high-confidence bugs are filed automatically. |
       | Run rules        | Run rules: who approves bugs, and how many tests run at once. Windows desktop apps are always Strict and run one at a time. |
@@ -47,7 +52,7 @@ Feature: QA Agents Cloud pilot section
     And the page has no horizontal scroll at 390 px
 
   Scenario: Every screenshot can be enlarged
-    When I click or press Enter on any of the 7 screenshots
+    When I click or press Enter on any of the 9 screenshots
     Then a dialog opens showing the full-size image and its caption
     And focus moves into the dialog, "Esc" or the "Close" button closes it, and focus returns to the screenshot
     And without JavaScript the screenshot is a link that opens the full-size image in a new tab with rel "noopener"

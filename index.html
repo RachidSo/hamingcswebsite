@@ -444,7 +444,7 @@
   <div class="wrap">
     <p class="chip reveal"><span class="chip__dot"></span>QA AGENTS CLOUD</p>
     <h2 class="h2 reveal">AI agents test your software. You decide what gets filed.</h2>
-    <p class="lede reveal" style="margin-top: 14px;">QA Agents Cloud is the testing product I built and run myself. AI agents plan and run tests against your web application from your specifications, and hold the bugs they find for a person to approve; you choose how strict that is. Every screenshot below comes from a run on a sample application, not from a customer.</p>
+    <p class="lede reveal" style="margin-top: 14px;">QA Agents Cloud is the testing product I built and run myself. A small team of AI agents plans, writes and runs tests against your web application, and holds the bugs it finds for a person to approve; you choose how strict that is. Every screenshot and the video below come from a run on a sample application, not from a customer.</p>
 
     <!-- TODO(before publishing): replace PLACEHOLDER_YOUTUBE_ID (2 places below) with the unlisted video ID and replace
          assets/qa-cloud/qa-video-poster.webp (temporary, made from the agent map) with demo-poster.png as WebP, about 1280x720, under 150 KB.
@@ -464,15 +464,31 @@
 
     <div class="qa-card qa-card--hero">
       <div class="qa-hero__text">
-        <h3>Agents that work as a team.</h3>
-        <p>A coordinator agent plans the run and tester agents run the tests.</p>
-        <p>How many run at once is a setting you choose.</p>
+        <h3>A small QA team, working in the open.</h3>
+        <p>A coordinator agent plans the run and hands the work to specialists. A planner prepares the test plan from your specification, a generator writes the tests, and an executor runs them. A triage agent sorts real bugs from environment problems and says how sure it is, and a reporter writes up each bug with a title, description and labels. When something doesn't add up, such as a test case that can't pass, the coordinator sends it back to the right agent to fix before the run continues. The Standup room keeps the whole conversation, so you can read how each result was reached before you approve anything.</p>
       </div>
       <figure class="qa-fig">
           <a class="qa-frame" href="assets/qa-cloud/qa-agent-map-dark.webp" data-lightbox target="_blank" rel="noopener" aria-label="Enlarge the agent map screenshot">
             <img src="assets/qa-cloud/qa-agent-map-dark.webp" width="1560" height="584" loading="lazy" alt="The agent map during a run: a coordinator agent connected to two test executor agents, each with its working time and token count.">
           </a>
           <figcaption>The agents of a run and how they work together. From a small run on a sample application.</figcaption>
+        </figure>
+    </div>
+
+    <div class="qa-card qa-card--standup">
+      <h3>Standup room</h3>
+      <p>A recorded, read-only transcript of a finished run.</p>
+      <figure class="qa-fig">
+          <a class="qa-frame" href="assets/qa-cloud/qa-standup-a-dark.webp" data-lightbox target="_blank" rel="noopener" aria-label="Enlarge the Standup room screenshot (first)">
+            <img src="assets/qa-cloud/qa-standup-a-dark.webp" width="1600" height="747" loading="lazy" alt="The Standup room transcript: the coordinator asks the test planner to fix test case AR-INVOICE-014, the planner replies with the fix, and the coordinator passes it to the test generator, which reports back.">
+          </a>
+          <figcaption>The Standup room: the coordinator sends a test case back to the planner, and the fix goes on to the test generator. From a finished run on a sample application.</figcaption>
+        </figure>
+      <figure class="qa-fig">
+          <a class="qa-frame" href="assets/qa-cloud/qa-standup-b-dark.webp" data-lightbox target="_blank" rel="noopener" aria-label="Enlarge the Standup room screenshot (second)">
+            <img src="assets/qa-cloud/qa-standup-b-dark.webp" width="1600" height="803" loading="lazy" alt="The Standup room transcript: the triage agent's summary sorting failures into real bugs and environment issues with confidence levels, followed by the bug reporter's summary of its filing decisions.">
+          </a>
+          <figcaption>Triage sorts the failures into real bugs and environment issues, with a confidence level, and the reporter sends back its filing decisions. From a finished run on a sample application.</figcaption>
         </figure>
     </div>
 

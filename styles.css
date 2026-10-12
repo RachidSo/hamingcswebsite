@@ -298,6 +298,8 @@ section.block.on-2 { background: var(--bg-2); }
 .qa-frame { display: block; background: var(--app-dark); border: 1px solid rgba(31,201,176,.28); border-radius: 12px; box-shadow: 0 0 0 1px rgba(255,255,255,.03), 0 18px 60px -22px rgba(31,201,176,.38); padding: 12px; overflow: hidden; cursor: zoom-in; }
 .qa-frame img { display: block; width: 100%; height: auto; border: 0; box-shadow: none; opacity: 1; }
 .qa-fig figcaption { margin-top: 16px; font-size: 1rem; line-height: 1.6; color: var(--fg); }
+.qa-card--standup .qa-fig { margin-top: 20px; }
+.qa-card--standup .qa-fig + .qa-fig { margin-top: 32px; }
 .qa-video { margin-top: 32px; }
 .qa-video > p { max-width: 62ch; }
 .qa-video .qa-frame { margin-top: 18px; }
