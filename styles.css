@@ -443,6 +443,43 @@ footer.site-footer { background: var(--bg-2); border-top: 1px solid var(--line);
   .faq-tabs button { transition: none; }
 }
 
+/* ---------- section visuals: Services circles, Engagement doorways, principle icons ---------- */
+.vis { margin: 36px auto 0; max-width: 960px; }
+.vis--services { max-width: 760px; }
+.vis__frame { width: 100%; }
+.vis__svg { display: block; width: 100%; height: auto; }
+.vis__list { display: none; }
+.vis use { color: var(--teal); }
+.vis .vc { stroke: var(--copper); }
+.vis .vcf { fill: var(--copper); stroke: none; }
+.vis .vtf { fill: var(--teal); stroke: none; opacity: .9; }
+.vis .vfaint { opacity: .6; }
+.vis__venn { fill: rgba(31,201,176,.10); stroke: var(--teal); stroke-width: 1.5; stroke-opacity: .8; }
+.vis__lbl { fill: var(--fg); font-family: var(--display); font-weight: 500; font-size: 18px; }
+.vis__lbl--join { font-weight: 600; font-size: 19px; }
+.vis__leader { stroke: var(--teal); stroke-width: 1.5; opacity: .75; }
+.vis__dot { fill: var(--teal); stroke: var(--teal-deep); stroke-width: 3; }
+.vis__path { fill: none; stroke: var(--teal); stroke-width: 1.5; opacity: .6; }
+.vis__node circle { fill: var(--bg-3); stroke: var(--teal); stroke-width: 1.5; }
+.principle-ic { display: block; margin-bottom: 8px; color: var(--teal); }
+.principle-ic use { color: var(--teal); }
+.principle-ic .vc { stroke: var(--copper); }
+@media (max-width: 699.98px) {
+  .vis__svg { display: none; }
+  .vis__list { display: block; max-width: 420px; margin: 0 auto; }
+  .vis__list ol { list-style: none; margin: 0; padding: 0 0 0 28px; position: relative; }
+  .vis__list ol::before { content: ""; position: absolute; left: 14px; top: 26px; bottom: -26px; border-left: 1.5px solid rgba(31,201,176,.55); }
+  .vis__list li { position: relative; display: flex; align-items: center; gap: 12px; margin-top: 12px; padding: 10px 14px; background: var(--bg-3); border: 1px solid var(--line); border-radius: 12px; color: var(--teal); }
+  .vis__list li:first-child { margin-top: 0; }
+  .vis__list li::before { content: ""; position: absolute; left: -14px; top: 50%; width: 14px; border-top: 1.5px solid rgba(31,201,176,.55); }
+  .vis__list li svg use { color: var(--teal); }
+  .vis__list li .vc { stroke: var(--copper); }
+  .vis__list li .vcf { fill: var(--copper); stroke: none; }
+  .vis__list li .vtf { fill: var(--teal); stroke: none; }
+  .vis__lbl-m { color: var(--fg); font-family: var(--display); font-weight: 500; font-size: 1.02rem; }
+  .vis__join { position: relative; margin: 16px 0 0; padding: 14px 18px; background: var(--teal-deep); border: 1px solid var(--teal); border-radius: 16px; color: var(--white); font-family: var(--display); font-weight: 600; font-size: 1.1rem; }
+}
+
 /* ---------- how the work is done: hub-and-spoke diagram, role cards, rules ---------- */
 #services .lede { max-width: none; } /* the Services intro fills the container under its full-width heading; the base .lede cap (58ch) still applies elsewhere */
 .how-intro { margin-top: 14px; }
