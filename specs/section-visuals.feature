@@ -36,7 +36,7 @@ Feature: Section visuals
       | 03 | Solution design architect  | Enterprise systems, designed to carry load.                               |
       | 04 | Manager and director       | Budget, P&L and delivery.                                                 |
       | 05 | CTO                        | Technology and strategy at leadership level.                              |
-    And under the path there are three tags "Automotive", "Energy" and "Digital"
+    And under the path there are three tags "Automotive", "Energy" and "Tech"
     And under the tags the line "Customers and teams across the US, Europe, Africa, the Middle East, Japan and China." is shown
     And under 700 pixels the five steps become a vertical list (icon, number, title, caption), followed by the tags and the markets line
     And the existing paragraphs are unchanged and in their original order
