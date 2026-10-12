@@ -9,7 +9,9 @@ Feature: QA Agents Cloud pilot section
 
   Scenario: Heading and introduction are in the first person
     Then the heading is "AI agents test your software. You decide what gets filed."
-    And the introduction is 2 to 3 sentences written in the first person ("I") and describes a small team of AI agents
+    And the introduction reads: "QA Agents Cloud is the testing product I built and run myself. Give it the address of your web application. A small team of AI agents plans the tests, writes them and runs them, then writes up each bug it finds: the steps to reproduce, what it expected and what actually happened. A person decides which bugs get filed, to GitHub Issues, Jira Cloud or a CSV file, and you choose how strict that is."
+    And it is written in the first person ("I"), left-aligned (never justified), with hyphenation off and a line length of about 70ch
+    And a second, smaller and muted paragraph says: "Everything below comes from a run on a sample application, not from a customer."
     And it says the screenshots and the video come from a run on a sample application, not from a customer
     And the section text contains no "we" or "our" as a word
 
@@ -70,7 +72,7 @@ Feature: QA Agents Cloud pilot section
 
   Scenario: A "See it live" video sits at the top of the section
     Then a "See it live" card sits under the intro and above the "Agents that work as a team." card
-    And it says "Watch a run, in under two minutes, from a run on a sample application."
+    And it says "A run on a sample application, in under two minutes."
     And the video is a 16:9 poster inside the same dark frame as the screenshots, with a visible "Play" button
     When the page loads, then no request goes to youtube.com or youtube-nocookie.com and nothing plays
     When I click the Play button, or focus it and press Enter or Space
