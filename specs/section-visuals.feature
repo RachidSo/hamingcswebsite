@@ -22,6 +22,7 @@ Feature: Section visuals
   Scenario: Working principles carry an icon each
     When I view the "A few working principles" list
     Then an icon sits above the heading of each of the three principles: a dial for "Strategy is only useful if someone can operate it", a shield with layers for "Security and scale are designed in, not added later" and a map pin for "I work where you are"
+    And each icon is 2.5rem wide and tall (2rem under 700 pixels), with its stroke scaled to stay about 2 pixels so the lines are no heavier than before
     And the principle text and layout are unchanged
 
   Scenario: The visuals are accessible and add no claims
