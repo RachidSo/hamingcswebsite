@@ -461,9 +461,12 @@ footer.site-footer { background: var(--bg-2); border-top: 1px solid var(--line);
 .vis__dot { fill: var(--teal); stroke: var(--teal-deep); stroke-width: 3; }
 .vis__path { fill: none; stroke: var(--teal); stroke-width: 1.5; opacity: .6; }
 .vis__node circle { fill: var(--bg-3); stroke: var(--teal); stroke-width: 1.5; }
-.principle-ic { display: block; margin-bottom: 8px; color: var(--teal); }
+.principle-ic { display: block; width: 2.5rem; height: 2.5rem; margin-bottom: 6px; color: var(--teal); --ic-sw: 1.2; }
 .principle-ic use { color: var(--teal); }
 .principle-ic .vc { stroke: var(--copper); }
+@media (max-width: 699.98px) {
+  .principle-ic { width: 2rem; height: 2rem; --ic-sw: 1.5; }
+}
 @media (max-width: 699.98px) {
   .vis__svg { display: none; }
   .vis__list { display: block; max-width: 420px; margin: 0 auto; }
