@@ -92,7 +92,7 @@ p, li, .lede, .intro-p, .section-head__p, .service-card p, .plan__blurb,
 /* the closing call to action is a centred block (heading, text, button), so its text is centred, never justified */
 .cta p { text-align: center; hyphens: none; -webkit-hyphens: none; text-wrap: pretty; }
 
-.qa-lede { max-width: 70ch; }
+.qa-lede { max-width: none; }
 .qa-lede--note { margin: 10px 0 0; font-size: .92rem; line-height: 1.55; color: var(--fg-3); }
 
 /* ---------- keyboard focus ---------- */
@@ -311,7 +311,7 @@ section.block.on-2 { background: var(--bg-2); }
 .qa-why__grid li { margin: 0; padding-top: 16px; border-top: 1px solid var(--line); }
 .qa-why__grid h4 { margin: 0 0 6px; }
 .qa-video { margin-top: 32px; }
-.qa-video > p { max-width: 62ch; }
+.qa-video > p { max-width: none; }
 .qa-video .qa-frame { margin-top: 18px; }
 .qa-frame--video { cursor: default; }
 .qa-video__stage { position: relative; display: block; aspect-ratio: 16 / 9; width: 100%; padding: 0; border: 0; background: var(--app-dark); border-radius: 6px; overflow: hidden; cursor: pointer; color: inherit; font: inherit; }
@@ -329,7 +329,7 @@ section.block.on-2 { background: var(--bg-2); }
 .lightbox__close { display: block; margin: 0 0 12px auto; padding: 8px 18px; border-radius: 999px; background: var(--bg-3); border: 1px solid var(--line-2); color: var(--fg); font-weight: 600; cursor: pointer; }
 .pilot-block { margin-top: 72px; padding: 32px 28px; border-radius: 20px; background: var(--bg-2); border: 1px solid var(--line); }
 .pilot-block h3 { font-size: 1.3rem; margin: 0 0 10px; }
-.pilot-block p { margin: 0; max-width: 62ch; color: var(--fg-2); line-height: 1.6; }
+.pilot-block p { margin: 0; color: var(--fg-2); line-height: 1.6; }
 .pilot-block .cta-actions { justify-content: flex-start; margin-top: 22px; }
 @media (max-width: 560px) {
   .qa-card { padding: 20px 16px; }
@@ -444,7 +444,8 @@ footer.site-footer { background: var(--bg-2); border-top: 1px solid var(--line);
 }
 
 /* ---------- how the work is done: hub-and-spoke diagram, role cards, rules ---------- */
-.how-lede { margin-top: 14px; }
+.how-intro { margin-top: 14px; }
+.how-lede { max-width: none; flex: 1 1 min(100%, 34ch); } /* same mechanism as .intro-stack in About: side by side while each stays 34ch or wider, stacked below that */
 .hub { margin: 40px auto 0; max-width: 960px; }
 .hub__sprite { position: absolute; width: 0; height: 0; overflow: hidden; }
 .hub__radial { display: block; width: 100%; height: auto; }

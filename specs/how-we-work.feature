@@ -14,7 +14,9 @@ Feature: How the work is done
     And no navigation entry is added, because "How I engage", "QA Agents Cloud" and the FAQ have none either
 
   Scenario: The introduction is first person and says the work is supported by agents
-    Then the introduction reads "Hamingcs has no subcontractors. I'm the person you meet, and I'm accountable for what you receive. Where a task is repeatable, I give it to an AI agent (AI coding agents do the engineering work, under my review), and I review the result before it reaches you."
+    Then the introduction is two paragraphs. The first reads "Hamingcs has no subcontractors. I'm the person you meet, and I'm accountable for what you receive." The second reads "Where a task is repeatable, I give it to an AI agent (AI coding agents do the engineering work, under my review), and I review the result before it reaches you."
+    And the two paragraphs use the same flex layout as the About introduction: side by side while each can stay at 34ch or wider, stacked below that
+    And the introduction has no narrow maximum width, so on desktop it fills the container like the heading above it
     And the section never says the work is "run by" agents
     And the section states no numbers and no customer claims
 
