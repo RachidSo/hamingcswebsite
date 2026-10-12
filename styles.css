@@ -1,8 +1,6 @@
 /* Hamingcs — shared styles
    Base: near-black + off-white. Teal is the primary accent, copper a secondary highlight. */
 
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
-
 :root {
   --bg: #0A0D12;
   --bg-2: #10141B;
