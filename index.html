@@ -449,20 +449,87 @@
   <div class="wrap">
     <p class="chip reveal"><span class="chip__dot"></span>QA AGENTS CLOUD</p>
     <h2 class="h2 reveal">AI agents test your software. You decide what gets filed.</h2>
-    <p class="lede reveal" style="margin-top: 14px;">QA Agents Cloud is the testing product I built and run myself. AI agents plan and run tests against your web application from your specifications, and a person decides which of the bugs they find get filed; you choose how strict that is. Every screenshot below comes from a run on a sample application, not from a customer.</p>
+    <p class="lede reveal" style="margin-top: 14px;">QA Agents Cloud is the testing product I built and run myself. A small team of AI agents plans, writes and runs tests against your web application, and a person decides which of the bugs it finds get filed; you choose how strict that is. Every screenshot and the video below come from a run on a sample application, not from a customer.</p>
+
+    <div class="qa-card qa-video" id="see-it-live">
+      <h3>See it live</h3>
+      <p>Watch a run, in under two minutes, from a run on a sample application.</p>
+      <div class="qa-frame qa-frame--video" data-youtube-id="lEEUnp4zzEo" data-video-title="QA Agents Cloud: a run on a sample application, under two minutes">
+        <a class="qa-video__stage" href="https://www.youtube.com/watch?v=lEEUnp4zzEo" target="_blank" rel="noopener" aria-label="Play the video: a run on a sample application, under two minutes (opens YouTube)">
+          <img src="assets/qa-cloud/qa-video-poster.webp" width="1280" height="720" loading="lazy" alt="Video poster: the agent map of a run on a sample application, one coordinator agent connected to two tester agents.">
+          <span class="qa-video__play" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" focusable="false"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>Play</span>
+        </a>
+      </div>
+      <p class="qa-video__ask">Want to see it live with your own questions? Email me and I'll set up a short walkthrough.</p>
+      <a href="mailto:info@hamingcs.com?subject=QA%20Agents%20Cloud%20walkthrough" class="btn btn-ghost">Ask for a walkthrough</a>
+    </div>
 
     <div class="qa-card qa-card--hero">
       <div class="qa-hero__text">
-        <h3>Agents that work as a team.</h3>
-        <p>A coordinator agent plans the run and tester agents run the tests.</p>
-        <p>How many run at once is a setting you choose.</p>
+        <h3>A small QA team, working in the open.</h3>
+        <p>A coordinator agent plans the run and hands the work to specialists. A planner prepares the test plan from your specification, a generator writes the tests, and an executor runs them. A triage agent sorts real bugs from environment problems and says how sure it is, and a reporter writes up each bug with a title, description and labels. When something doesn't add up, such as a test case that can't pass, the coordinator sends it back to the right agent to fix before the run continues. The Standup room keeps the whole conversation, so you can read how each result was reached before you approve anything.</p>
       </div>
       <figure class="qa-fig">
-          <a class="qa-frame" href="assets/qa-cloud/qa-agent-map-dark.webp" data-lightbox target="_blank" rel="noopener" aria-label="Enlarge the agent map screenshot">
-            <img src="assets/qa-cloud/qa-agent-map-dark.webp" width="1560" height="584" loading="lazy" alt="The agent map during a run: a coordinator agent connected to two test executor agents, each with its working time and token count.">
+          <a class="qa-frame" href="assets/qa-cloud/qa-overview-live-dark.webp" data-lightbox target="_blank" rel="noopener" aria-label="Enlarge the Overview screenshot">
+            <img src="assets/qa-cloud/qa-overview-live-dark.webp" width="1280" height="410" loading="lazy" alt="The QA Agents Cloud Overview: what happened across your targets and what needs your approval, with live agent count.">
           </a>
-          <figcaption>The agents of a run and how they work together. From a small run on a sample application.</figcaption>
+          <figcaption>The Overview: what happened, and what needs you.</figcaption>
         </figure>
+    </div>
+
+    <div class="qa-card qa-card--standup">
+      <h3>Standup room</h3>
+      <p>A recorded, read-only transcript of a finished run.</p>
+      <figure class="qa-fig">
+          <a class="qa-frame" href="assets/qa-cloud/qa-standup-a-dark.webp" data-lightbox target="_blank" rel="noopener" aria-label="Enlarge the Standup room screenshot (first)">
+            <img src="assets/qa-cloud/qa-standup-a-dark.webp" width="1600" height="747" loading="lazy" alt="The Standup room transcript: the coordinator asks the test planner to fix test case AR-INVOICE-014, the planner replies with the fix, and the coordinator passes it to the test generator, which reports back.">
+          </a>
+          <figcaption>The Standup room: the coordinator sends a test case back to the planner, and the fix goes on to the test generator. From a finished run on a sample application.</figcaption>
+        </figure>
+      <figure class="qa-fig">
+          <a class="qa-frame" href="assets/qa-cloud/qa-standup-b-dark.webp" data-lightbox target="_blank" rel="noopener" aria-label="Enlarge the Standup room screenshot (second)">
+            <img src="assets/qa-cloud/qa-standup-b-dark.webp" width="1600" height="803" loading="lazy" alt="The Standup room transcript: the triage agent's summary sorting failures into real bugs and environment issues with confidence levels, followed by the bug reporter's summary of its filing decisions.">
+          </a>
+          <figcaption>Triage sorts the failures into real bugs and environment issues, with a confidence level, and the reporter sends back its filing decisions. From a finished run on a sample application.</figcaption>
+        </figure>
+    </div>
+
+    <div class="qa-card qa-why" id="why-different">
+      <h3>Why it's different</h3>
+      <ul class="qa-why__grid">
+        <li>
+          <h4>You stay in control</h4>
+          <p>Any bug can wait for your approval before it is filed. You choose Standard or Strict, for the whole instance or for one target. On Windows desktop apps every bug always waits.</p>
+        </li>
+        <li>
+          <h4>You can read the work</h4>
+          <p>Each run keeps its agents' written notes in the Standup room, including when a test case was sent back and why.</p>
+        </li>
+        <li>
+          <h4>You see the cost</h4>
+          <p>Every run shows an estimated cost for each agent, and your own Anthropic account is billed directly.</p>
+        </li>
+        <li>
+          <h4>It fits how you work</h4>
+          <p>Download the findings as a CSV or as a file for Jira import. File approved bugs to GitHub Issues or Jira Cloud (I confirm the Jira connection with you first). Get an email summary after each run, or a post to a Slack webhook.</p>
+        </li>
+        <li>
+          <h4>Honest about what's proven</h4>
+          <p>I have run it on sample applications, including right-to-left Arabic and Japanese pages. Windows desktop is proven on a sample application only, not yet with a customer.</p>
+        </li>
+        <li>
+          <h4>Your time goes where it counts</h4>
+          <p>The agents take the routine testing. The judgement calls stay with you, such as whether a finding is worth filing.</p>
+        </li>
+        <li>
+          <h4>Scale the team up or down</h4>
+          <p>Choose how many tester agents run at once: up to 1, 2 or 3 (the default is up to 3). The coordinator is told to stay within that number; the other agents are not limited by it.</p>
+        </li>
+        <li>
+          <h4>Need another role?</h4>
+          <p>Need a different role on the team, such as another kind of tester? I can build that as another agent. It is agreed in writing as part of the pilot scope.</p>
+        </li>
+      </ul>
     </div>
 
     <div class="qa-card qa-card--strip">
@@ -481,18 +548,17 @@
             <img src="assets/qa-cloud/qa-approvals-dark.webp" width="2120" height="550" loading="lazy" alt="The Approvals page: a group of two bugs held for a person, each with severity, confidence and Review, Reject and Approve buttons.">
           </a>
           <h3>Approvals</h3>
-          <p class="qa-card__benefit">Bugs wait for a person, as strictly as you choose.</p>
+          <p class="qa-card__benefit">A person decides what gets filed, as strictly as you choose.</p>
           <figcaption>Under the Strict rule, every bug waits for your approval before it is filed. Under the default Standard rule, only low-severity, high-confidence bugs are filed automatically.</figcaption>
         </figure>
       </article>
       <article class="qa-card qa-row qa-row--flip">
         <figure class="qa-fig">
           <a class="qa-frame" href="assets/qa-cloud/qa-run-rules-dark.webp" data-lightbox target="_blank" rel="noopener" aria-label="Enlarge the Run rules screenshot">
-            <img src="assets/qa-cloud/qa-run-rules-dark.webp" width="2120" height="942" loading="lazy" alt="The Run rules page: choose Standard or Strict for who approves bugs, and how many tests run at once, from 1 to 3.">
+            <img src="assets/qa-cloud/qa-run-rules-dark.webp" width="2352" height="934" loading="lazy" alt="The Run rules page: choose Standard or Strict for who approves bugs, and how many tester agents run at once, up to 1, 2 or 3.">
           </a>
           <h3>Run rules</h3>
-          <p class="qa-card__benefit">Choose how strict approval is and how many tests run at once.</p>
-          <figcaption>Run rules: who approves bugs, and how many tests run at once. Windows desktop apps are always Strict and run one at a time.</figcaption>
+          <figcaption>Who approves bugs, and how many tester agents run at once (up to 3 by default). Windows desktop apps are always Strict and run one tester agent at a time.</figcaption>
         </figure>
       </article>
       <article class="qa-card qa-row">
@@ -515,7 +581,6 @@
             <img src="assets/qa-cloud/qa-run-results-dark.webp" width="2120" height="774" loading="lazy" alt="A finished run on a sample application: 23 tests run, 5 findings, and three real bugs waiting for approval.">
           </a>
           <h4>Run results</h4>
-          <p class="qa-card__benefit">What the agents found, and what needs your approval.</p>
           <figcaption>A finished run on a sample application: tests, findings, and what needs approval. My own run, not a customer result.</figcaption>
         </figure>
       </article>
@@ -525,8 +590,7 @@
             <img src="assets/qa-cloud/qa-concurrency-chart-dark.webp" width="1260" height="300" loading="lazy" alt="Concurrency chart for one run: how many agents ran at the same time over about 40 minutes, with a peak of 3.">
           </a>
           <h4>Concurrency</h4>
-          <p class="qa-card__benefit">How many agents worked at the same time.</p>
-          <figcaption>How many agents ran at the same time in one run. The tester limit is a setting I choose, not a guarantee.</figcaption>
+          <figcaption>How many agents ran at the same time in one run. The tester limit is a setting I choose, not a guarantee. From a run on a sample application.</figcaption>
         </figure>
       </article>
     </div>
