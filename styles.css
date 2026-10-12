@@ -442,3 +442,44 @@ footer.site-footer { background: var(--bg-2); border-top: 1px solid var(--line);
   .reveal { opacity: 1; transform: none; transition: none; }
   .faq-tabs button { transition: none; }
 }
+
+/* ---------- how the work is done: hub-and-spoke diagram, role cards, rules ---------- */
+.how-lede { margin-top: 14px; }
+.hub { margin: 40px auto 0; max-width: 960px; }
+.hub__sprite { position: absolute; width: 0; height: 0; overflow: hidden; }
+.hub__radial { display: block; width: 100%; height: auto; }
+.hub__list { display: none; }
+.hub__lines line { stroke: var(--teal); stroke-width: 1.5; opacity: .55; }
+.hub__mark rect { fill: var(--bg-2); stroke: var(--line-2); }
+.hub__mark text { fill: var(--fg-2); font-family: var(--mono); font-size: 12px; letter-spacing: .03em; }
+.hub__centre circle { fill: var(--teal-deep); stroke: var(--teal); stroke-width: 2; }
+.hub__c1 { fill: var(--white); font-family: var(--display); font-weight: 600; font-size: 21px; }
+.hub__c2 { fill: rgba(255,255,255,.82); font-family: var(--sans); font-size: 13px; }
+.hub__node circle { fill: var(--bg-3); stroke: var(--teal); stroke-width: 1.5; }
+.hub__node use { color: var(--teal); }
+.hub__node text { fill: var(--fg); font-family: var(--display); font-weight: 500; font-size: 17px; }
+@media (max-width: 699.98px) {
+  .hub__radial { display: none; }
+  .hub__list { display: block; max-width: 420px; margin: 0 auto; }
+  .hub__me { background: var(--teal-deep); border: 1px solid var(--teal); border-radius: 16px; padding: 16px 18px; color: var(--white); }
+  .hub__me strong { display: block; font-family: var(--display); font-size: 1.15rem; font-weight: 600; }
+  .hub__me span { display: block; margin-top: 2px; font-size: .92rem; color: rgba(255,255,255,.82); }
+  .hub__list ol { list-style: none; margin: 0; padding: 0 0 0 28px; position: relative; }
+  .hub__list ol::before { content: ""; position: absolute; left: 14px; top: 0; bottom: 26px; border-left: 1.5px solid rgba(31,201,176,.55); }
+  .hub__list li { position: relative; display: flex; align-items: center; gap: 12px; margin-top: 12px; padding: 10px 14px; background: var(--bg-3); border: 1px solid var(--line); border-radius: 12px; color: var(--teal); }
+  .hub__list li::before { content: ""; position: absolute; left: -14px; top: 50%; width: 14px; border-top: 1.5px solid rgba(31,201,176,.55); }
+  .hub__lbl { color: var(--fg); font-family: var(--display); font-weight: 500; font-size: 1.02rem; }
+  .hub__tag { margin-left: auto; font-family: var(--mono); font-size: .72rem; color: var(--fg-2); border: 1px solid var(--line-2); border-radius: 999px; padding: 1px 9px; }
+}
+.how-cards { list-style: none; margin: 56px 0 0; padding: 0; display: grid; grid-template-columns: minmax(0, 1fr); gap: 18px; }
+.how-cards li { margin: 0; padding-top: 16px; border-top: 1px solid var(--line); color: var(--fg-2); font-size: .96rem; line-height: 1.6; text-align: left; hyphens: none; -webkit-hyphens: none; }
+.how-cards strong { display: block; margin-bottom: 6px; color: var(--fg); font-family: var(--display); font-size: 1.1rem; font-weight: 600; }
+.how-line { display: block; margin-top: 4px; }
+.how-line b { color: var(--fg); font-weight: 600; }
+.how-note { display: block; margin-top: 8px; color: var(--fg-2); }
+.how-note a, .how-more a { color: var(--teal); text-decoration: underline; text-underline-offset: 3px; }
+@media (min-width: 900px) { .how-cards { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); grid-template-rows: repeat(4, auto); grid-auto-flow: column; gap: 18px 48px; } }
+.how-rules { list-style: none; margin: 40px 0 0; padding: 0; display: grid; gap: 10px; }
+.how-rules li { position: relative; margin: 0; padding-left: 22px; color: var(--fg); font-size: .98rem; text-align: left; hyphens: none; -webkit-hyphens: none; }
+.how-rules li::before { content: ""; position: absolute; left: 0; top: .62em; width: 8px; height: 8px; border-radius: 50%; background: var(--teal); }
+.how-more { margin-top: 28px; font-size: .88rem; color: var(--fg-2); text-align: left; }
