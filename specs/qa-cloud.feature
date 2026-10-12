@@ -40,7 +40,7 @@ Feature: QA Agents Cloud pilot section
       | Standup room (b) | Triage sorts the failures into real bugs and environment issues, with a confidence level, and the reporter sends back its filing decisions. From a finished run on a sample application. |
       | Live progress    | A run in progress: how many agents are working and how far along it is. From a run on a sample application. |
       | Approvals        | Under the Strict rule, every bug waits for your approval before it is filed. Under the default Standard rule, only low-severity, high-confidence bugs are filed automatically. |
-      | Run rules        | Who approves bugs, and how many tests run at once. Windows desktop apps are always Strict and run one at a time. |
+      | Run rules        | Who approves bugs, and how many tester agents run at once (up to 3 by default). Windows desktop apps are always Strict and run one tester agent at a time. |
       | Estimated cost   | Estimated cost by agent for the same run: the first four of eight agents. Costs are estimates; your own Anthropic account is billed directly. |
       | Run results      | A finished run on a sample application: tests, findings, and what needs approval. My own run, not a customer result. |
       | Concurrency      | How many agents ran at the same time in one run. The tester limit is a setting I choose, not a guarantee. From a run on a sample application. |
