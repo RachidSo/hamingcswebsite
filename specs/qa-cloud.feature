@@ -58,3 +58,21 @@ Feature: QA Agents Cloud pilot section
     And it says Windows desktop testing is proven on a sample application, not yet with a customer
     And it has a "Request a pilot" button linking to "mailto:info@hamingcs.com?subject=QA%20pilot%20request"
     And it shows no price, no hosted offer, no licence and no maintenance, support, marketing or product-management agents
+
+  Scenario: A "See it live" video sits at the top of the section
+    Then a "See it live" card sits under the intro and above the "Agents that work as a team." card
+    And it says "Watch a run, about 90 seconds, from a run on a sample application."
+    And the video is a 16:9 poster inside the same dark frame as the screenshots, with a visible "Play" button
+    When the page loads, then no request goes to youtube.com or youtube-nocookie.com and nothing plays
+    When I click the Play button, or focus it and press Enter or Space
+    Then the poster is replaced by an iframe from "https://www.youtube-nocookie.com/embed/<id>" with autoplay=1 and rel=0, and a title attribute
+    And without JavaScript the poster is a link to the video
+    And below it a line reads "Want to see it live with your own questions? Email me and I'll set up a short walkthrough."
+    And an "Ask for a walkthrough" secondary button links to "mailto:info@hamingcs.com?subject=QA%20Agents%20Cloud%20walkthrough"
+    And that line says nothing about a hosted trial, a response time or a price
+    And the "Request a pilot" button and the pilot block are unchanged
+    And on a 390 px screen the frame is full width with no horizontal scroll
+
+  Scenario: The placeholder video ID can never ship
+    Then index.html does not contain "PLACEHOLDER_YOUTUBE_ID"
+    And "node scripts/check-no-placeholder.mjs" exits with code 0

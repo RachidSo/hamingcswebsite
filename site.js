@@ -105,6 +105,34 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
+  // "See it live": nothing is requested from YouTube until the visitor presses Play. The no-JavaScript fallback is a plain link to the
+  // video; with JavaScript it becomes a real button (Enter and Space work) that swaps the poster for a privacy-enhanced embed.
+  document.querySelectorAll('[data-youtube-id]').forEach(function (frame) {
+    var id = frame.getAttribute('data-youtube-id');
+    var title = frame.getAttribute('data-video-title') || 'Video';
+    var link = frame.querySelector('a.qa-video__stage');
+    if (!link || !/^[\w-]{6,32}$/.test(id)) return;
+    var btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'qa-video__stage';
+    btn.setAttribute('aria-label', 'Play the video: ' + title);
+    while (link.firstChild) btn.appendChild(link.firstChild);
+    link.replaceWith(btn);
+    btn.addEventListener('click', function () {
+      var f = document.createElement('iframe');
+      f.src = 'https://www.youtube-nocookie.com/embed/' + encodeURIComponent(id) + '?autoplay=1&rel=0';
+      f.title = title;
+      f.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
+      f.allowFullscreen = true;
+      f.referrerPolicy = 'strict-origin-when-cross-origin';
+      var stage = document.createElement('div');
+      stage.className = 'qa-video__stage';
+      stage.appendChild(f);
+      btn.replaceWith(stage);
+      f.focus();
+    });
+  });
+
   var reveals = document.querySelectorAll('.reveal');
   if ('IntersectionObserver' in window && reveals.length) {
     var io = new IntersectionObserver(function (entries) {
