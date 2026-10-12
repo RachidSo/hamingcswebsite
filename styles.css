@@ -21,7 +21,7 @@
   --sans: 'IBM Plex Sans', -apple-system, sans-serif;
   --display: 'Space Grotesk', -apple-system, sans-serif;
   --mono: 'IBM Plex Mono', ui-monospace, monospace;
-  --container: 1080px;
+  --container: clamp(1080px, 78vw, 1440px); /* grows with the screen: 1080 at 1024, about 1300 at 1670, 1440 from 1850 up */
   --nav-h: 76px;
   --ease: cubic-bezier(.22, 1, .36, 1);
 }
@@ -79,16 +79,20 @@ h1, h2, h3 {
 }
 .section-head__p { font-size: .98rem; line-height: 1.6; color: var(--fg-2); padding-bottom: 4px; }
 
-/* ---------- justified description copy ---------- */
+/* ---------- body copy: left-aligned, no hyphenation, balanced line ends ---------- */
 
-.lede, .intro-p, .section-head__p, .service-card p, .plan__blurb,
-.qa__a, .principle p, .pillar p, .footer-brand p, .cta p {
-  text-align: justify;
-  text-justify: inter-word;
-  hyphens: auto;
+body { text-align: left; hyphens: none; -webkit-hyphens: none; text-wrap: pretty; } /* inherited, so no element can fall back to the browser's hyphenation */
+p, li, .lede, .intro-p, .section-head__p, .service-card p, .plan__blurb,
+.qa__a, .principle p, .pillar p, .footer-brand p {
+  text-align: left;
+  hyphens: none;
+  -webkit-hyphens: none;
+  text-wrap: pretty;
 }
+/* the closing call to action is a centred block (heading, text, button), so its text is centred, never justified */
+.cta p { text-align: center; hyphens: none; -webkit-hyphens: none; text-wrap: pretty; }
 
-.qa-lede { text-align: left; text-justify: auto; hyphens: none; -webkit-hyphens: none; max-width: 70ch; }
+.qa-lede { max-width: 70ch; }
 .qa-lede--note { margin: 10px 0 0; font-size: .92rem; line-height: 1.55; color: var(--fg-3); }
 
 /* ---------- keyboard focus ---------- */
@@ -203,10 +207,10 @@ section.block.on-2 { background: var(--bg-2); }
 
 /* intro statement */
 
-.intro-stack { max-width: 700px; }
-.intro-p { font-size: 1.55rem; line-height: 1.4; letter-spacing: -.01em; color: var(--fg-3); margin-top: 30px; transition: color .3s; }
-.intro-p:first-of-type { margin-top: 28px; }
-.intro-p.is-lead { color: var(--fg); }
+/* the lead sentence takes the full width (up to about 30em); the paragraphs after it sit in columns when there is room and stack when there is not, like the Why it's different list */
+.intro-stack { display: flex; flex-wrap: wrap; gap: 28px 48px; margin-top: 28px; }
+.intro-p { font-size: 1.55rem; line-height: 1.4; letter-spacing: -.01em; color: var(--fg-3); margin: 0; transition: color .3s; flex: 1 1 min(100%, 34ch); } /* ch here is this paragraph's own font, so 34ch is a real column width */
+.intro-p.is-lead { color: var(--fg); flex-basis: 100%; box-sizing: border-box; padding-right: max(0px, calc(100% - 30em)); } /* a full row of its own, with text up to about 30em wide (padding, not max-width, so the next paragraph cannot slide up beside it) */
 
 /* ---------- service groups &amp; cards ---------- */
 
@@ -343,7 +347,6 @@ section.block.on-2 { background: var(--bg-2); }
 
 /* ---------- founder interview (reuses the FAQ component) ---------- */
 .interview-by { font-family: var(--mono); font-size: .74rem; letter-spacing: .04em; color: var(--fg-3); margin-top: 10px; }
-.interview-grid .qa__a { hyphens: manual; -webkit-hyphens: manual; }
 .qa summary h3, .qa summary h4 { font: inherit; letter-spacing: inherit; margin: 0; color: inherit; }
 .qa-why-list { margin-top: 56px; }
 .qa-why-list > h3 { font-size: 1.3rem; margin: 0 0 8px; }
