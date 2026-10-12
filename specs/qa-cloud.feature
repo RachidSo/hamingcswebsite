@@ -84,7 +84,7 @@ Feature: QA Agents Cloud pilot section
     And "node scripts/check-no-placeholder.mjs" exits with code 0
 
   Scenario: "Why it's different" lists eight verified points
-    Then the card has the heading "Why it's different" and exactly 8 points, in this order: "You stay in control", "You can read the work", "You see the cost", "It fits how you work", "Start from your specifications", "Your time goes where it counts", "Scale the team up or down" and "Need another role?"
+    Then the card has the heading "Why it's different" and exactly 8 points, in this order: "You stay in control", "You can read the work", "You see the cost", "It fits how you work", "Honest about what's proven", "Your time goes where it counts", "Scale the team up or down" and "Need another role?"
     And every claim in them is one the app or the code shows (Standard and Strict, Windows desktop always Strict, the Standup room, an estimated cost per agent, CSV and Jira-import downloads, GitHub Issues and Jira Cloud, an email summary and a Slack webhook, a tester limit of 1 to 3 with a default of 3)
     And the tester limit is described as a setting the coordinator is told to stay within, and says the other agents are not limited by it; it is not called enforced, guaranteed or a hard cap
     And it says Windows desktop is proven on a sample application only, not yet with a customer, and does not claim Arabic or right-to-left support beyond having run it on sample applications
