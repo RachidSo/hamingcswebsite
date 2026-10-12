@@ -10,6 +10,7 @@ Feature: Services section
     Then the section is headed "SERVICES"
     And the subheading "Three disciplines. One engagement." is visible
     And intro copy states clients can engage one discipline or all three
+    And the intro line ("I work across the full path from strategy to running system — engage me for any one discipline, or all three.") has no narrow maximum width, so it fills the container under the heading
 
   Scenario Outline: AI & Data services are listed
     Then under the "AI & DATA" category, a service titled "<service>" is visible

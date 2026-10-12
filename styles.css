@@ -444,6 +444,7 @@ footer.site-footer { background: var(--bg-2); border-top: 1px solid var(--line);
 }
 
 /* ---------- how the work is done: hub-and-spoke diagram, role cards, rules ---------- */
+#services .lede { max-width: none; } /* the Services intro fills the container under its full-width heading; the base .lede cap (58ch) still applies elsewhere */
 .how-intro { margin-top: 14px; }
 .how-lede { max-width: none; flex: 1 1 min(100%, 34ch); } /* same mechanism as .intro-stack in About: side by side while each stays 34ch or wider, stacked below that */
 .hub-wrap { display: flex; flex-direction: column; margin: 40px auto 0; max-width: 960px; }
