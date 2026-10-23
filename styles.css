@@ -2,9 +2,9 @@
    Base: near-black + off-white. Teal is the primary accent, copper a secondary highlight. */
 
 /* Fonts are served from this site (assets/fonts), Latin subset, SIL Open Font License 1.1 (see the LICENSE files there).
-   IBM Plex Sans and Space Grotesk are variable fonts: one file covers all the weights used. */
-@font-face { font-family: 'IBM Plex Sans'; font-style: normal; font-weight: 100 700; font-display: swap; src: url(assets/fonts/ibm-plex-sans-var.woff2) format('woff2'); }
-@font-face { font-family: 'Space Grotesk'; font-style: normal; font-weight: 300 700; font-display: swap; src: url(assets/fonts/space-grotesk-var.woff2) format('woff2'); }
+   IBM Plex Sans and Space Grotesk are variable fonts: one file covers all the weights used. The weight ranges match the weights the site loaded before (Sans 400-600, Grotesk 500-700), so the browser picks the same weights as before. */
+@font-face { font-family: 'IBM Plex Sans'; font-style: normal; font-weight: 400 600; font-display: swap; src: url(assets/fonts/ibm-plex-sans-var.woff2) format('woff2'); }
+@font-face { font-family: 'Space Grotesk'; font-style: normal; font-weight: 500 700; font-display: swap; src: url(assets/fonts/space-grotesk-var.woff2) format('woff2'); }
 @font-face { font-family: 'IBM Plex Mono'; font-style: normal; font-weight: 400; font-display: swap; src: url(assets/fonts/ibm-plex-mono-400.woff2) format('woff2'); }
 @font-face { font-family: 'IBM Plex Mono'; font-style: normal; font-weight: 500; font-display: swap; src: url(assets/fonts/ibm-plex-mono-500.woff2) format('woff2'); }
 :root {
