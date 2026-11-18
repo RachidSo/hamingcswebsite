@@ -24,25 +24,25 @@ Feature: How the work is done
     Then the diagram is an inline SVG inside an element with role "img" and a descriptive aria-label
     And no image file and no script library is loaded for it
     And the centre circle, in the dark brand colour, reads "Me, accountable" with the sub-line "reviews and signs off everything"
-    And seven nodes in the accent colour surround it, each with a line icon and a two-line label: the role on line 1 ("Architecture", "Development", "DevOps", "Testing", "Product", "Marketing", "Support") and the word "agent" on line 2 in a lighter weight and colour, so each node reads "<Role> agent"
-    And behind each of the seven nodes two more circles of the same size are drawn at lower opacity, offset up and to the right, to show that a role can be several agents
+    And eleven nodes in the accent colour surround it, each with a line icon and a two-line label: the role on line 1 ("Coordinator", "Architecture", "Data Engineer", "Development", "ML Engineer", "DevOps", "Security", "Testing", "Product", "Marketing", "Support") and the word "agent" on line 2 in a lighter weight and colour, so each node reads "<Role> agent"
+    And behind each of the eleven nodes two more circles of the same size are drawn at lower opacity, offset up and to the right, to show that a role can be several agents
     And the centre "Me, accountable" circle is not stacked
     And a line joins each node to the centre, with exactly one small "review" marker on it per role, not one per stacked circle
     And directly under the diagram a legend reads "Each role can run as several agents at once, when the work needs it." with no numbers and no "x2" or "x3" labels
-    And the diagram's aria-label describes the seven agents, the stacks and the review step
+    And the diagram's aria-label describes the eleven agents, the stacks and the review step
     And nothing in the diagram is animated, and no robot or stock imagery is used
     And no label, stacked circle, review marker or neighbouring node overlaps another at 2560, 1867, 1440, 1024, 780 or 390 pixels wide
 
   Scenario: Under 700 pixels the diagram becomes a vertical list
     When the viewport is narrower than 700 pixels
     Then the radial layout is hidden
-    And the centre block "Me, accountable" comes first, followed by the seven nodes in the same order, each with its icon, a single-line label "<Role> agent" (for example "Development agent") and a "review" tag
+    And the centre block "Me, accountable" comes first, followed by the eleven nodes in the same order, each with its icon, a single-line label "<Role> agent" (for example "Development agent") and a "review" tag
     And there are no stacked circles in the list
     And the legend "Each role can run as several agents at once, when the work needs it." is shown above the list instead of below it
     And from 700 pixels up the radial layout is shown and the list is hidden
 
-  Scenario: Seven role cards are visible, not accordions
-    Then below the diagram there are exactly 7 cards in this order: "Software architecture", "Software development", "DevOps", "Testing", "Product management", "Marketing", "Maintenance and support"
+  Scenario: Eleven role cards are visible, not accordions
+    Then below the diagram there are exactly 11 cards in this order: "Coordination", "Software architecture", "Data engineering", "Software development", "Machine learning engineering", "DevOps", "Security", "Testing", "Product management", "Marketing", "Maintenance and support"
     And every card shows a title and two lines, "Agent does:" and "I decide:"
     And the cards are two columns from 900 pixels and one column below, in the style of the "Why it's different" list
     And the "Testing" card adds "QA Agents Cloud is this team, offered as a product." with a link to "#qa-cloud"
